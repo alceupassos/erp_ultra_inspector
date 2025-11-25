@@ -308,16 +308,113 @@ export async function POST(req: NextRequest) {
       ORDER BY referenced_by_count DESC, p.rows DESC
     `);
 
-    // Compilar tudo em um único objeto
+    // 2.2 Filegroups e Files
+    const filegroups = await pool.request().query(`
+      SELECT 
+        fg.name AS filegroup_name,
+        fg.type_desc AS filegroup_type,
+        f.name AS logical_file_name,
+        f.physical_name,
+        f.size * 8 / 1024 AS size_mb,
+        f.max_size,
+        f.growth,
+        f.is_percent_growth,
+        f.type_desc AS file_type
+      FROM sys.filegroups fg
+      LEFT JOIN sys.database_files f ON fg.data_space_id = f.data_space_id
+      ORDER BY fg.name, f.name
+    `).catch(() => ({ recordset: [] }));
+
+    // 2.3 Usuários e Permissões
+    const logins = await pool.request().query(`
+      SELECT 
+        name,
+        type_desc,
+        is_disabled,
+        create_date,
+        modify_date
+      FROM sys.server_principals
+      WHERE type IN ('S', 'U', 'G')
+        AND name NOT LIKE '##%'
+      ORDER BY name
+    `).catch(() => ({ recordset: [] }));
+
+    const users = await pool.request().query(`
+      SELECT 
+        dp.name AS user_name,
+        dp.type_desc AS user_type,
+        dp.create_date,
+        dp.modify_date,
+        ISNULL(USER_NAME(dp.default_schema_name), 'dbo') AS default_schema
+      FROM sys.database_principals dp
+      WHERE dp.type IN ('S', 'U', 'G')
+        AND dp.name NOT IN ('dbo', 'guest', 'INFORMATION_SCHEMA', 'sys')
+      ORDER BY dp.name
+    `).catch(() => ({ recordset: [] }));
+
+    const roles = await pool.request().query(`
+      SELECT 
+        r.name AS role_name,
+        r.type_desc AS role_type,
+        m.name AS member_name,
+        m.type_desc AS member_type
+      FROM sys.database_roles r
+      LEFT JOIN sys.database_role_members rm ON r.principal_id = rm.role_principal_id
+      LEFT JOIN sys.database_principals m ON rm.member_principal_id = m.principal_id
+      WHERE r.name NOT IN ('public')
+      ORDER BY r.name, m.name
+    `).catch(() => ({ recordset: [] }));
+
+    // 2.4 Jobs (se msdb acessível)
+    let jobs = { recordset: [] };
+    try {
+      jobs = await pool.request().query(`
+        SELECT 
+          j.name AS job_name,
+          j.enabled,
+          j.date_created,
+          j.date_modified,
+          j.description
+        FROM msdb.dbo.sysjobs j
+        ORDER BY j.name
+      `);
+    } catch (e) {
+      console.warn("msdb não acessível:", e);
+    }
+
+    // 3.2 Relacionamentos para Power BI
+    const relationships = await pool.request().query(`
+      SELECT 
+        ps.name AS from_schema,
+        pt.name AS from_table,
+        pc.name AS from_column,
+        rs.name AS to_schema,
+        rt.name AS to_table,
+        rc.name AS to_column,
+        fk.name AS relationship_name
+      FROM sys.foreign_keys fk
+      JOIN sys.tables pt ON fk.parent_object_id = pt.object_id
+      JOIN sys.schemas ps ON pt.schema_id = ps.schema_id
+      JOIN sys.tables rt ON fk.referenced_object_id = rt.object_id
+      JOIN sys.schemas rs ON rt.schema_id = rs.schema_id
+      JOIN sys.foreign_key_columns fkc ON fk.object_id = fkc.constraint_object_id
+      JOIN sys.columns pc ON fkc.parent_object_id = pc.object_id AND fkc.parent_column_id = pc.column_id
+      JOIN sys.columns rc ON fkc.referenced_object_id = rc.object_id AND fkc.referenced_column_id = rc.column_id
+      ORDER BY ps.name, pt.name, fk.name
+    `).catch(() => ({ recordset: [] }));
+
+    // Compilar tudo em um único objeto seguindo o PLANO_EXPORTACAO_SQL_ULTRA.md
     const completeExport = {
       exportDate: new Date().toISOString(),
       database: database,
       server: server,
       port: port,
+      planVersion: "1.0",
+      executedPlan: "PLANO_EXPORTACAO_SQL_ULTRA.md",
       
-      // Fase 1: Schemas e Estrutura
-      schemas: {
-        list: schemas.recordset,
+      // FASE 1: Exportação de Schemas e Estrutura
+      phase1_schemasAndStructure: {
+        schemas: schemas.recordset,
         tables: tables.recordset.map((t: any) => ({
           ...t,
           columns: columns.recordset.filter((c: any) => 
@@ -341,21 +438,72 @@ export async function POST(req: NextRequest) {
           totalTables: tables.recordset.length,
           totalViews: views.recordset.length,
           totalProcedures: procedures.recordset.length,
-          totalFunctions: functions.recordset.length
+          totalFunctions: functions.recordset.length,
+          totalColumns: columns.recordset.length,
+          totalPrimaryKeys: primaryKeys.recordset.length,
+          totalForeignKeys: foreignKeys.recordset.length,
+          totalIndexes: indexes.recordset.length
         }
       },
       
-      // Fase 2: Configurações
-      configuration: {
-        server: serverConfig.recordset[0] || {},
-        database: dbConfig.recordset[0] || {}
+      // FASE 2: Exportação de Configurações do SQL Server
+      phase2_configurations: {
+        serverConfiguration: {
+          ...serverConfig.recordset[0],
+          version: serverConfig.recordset[0]?.sql_version,
+          edition: serverConfig.recordset[0]?.edition,
+          productLevel: serverConfig.recordset[0]?.product_level
+        },
+        databaseConfiguration: {
+          ...dbConfig.recordset[0],
+          filegroups: filegroups.recordset
+        },
+        security: {
+          logins: logins.recordset,
+          users: users.recordset,
+          roles: roles.recordset
+        },
+        maintenance: {
+          jobs: jobs.recordset
+        }
       },
       
-      // Fase 3: Power BI
-      powerBI: {
-        factTables: factTables.recordset,
-        dimensionTables: dimensionTables.recordset,
-        connectionString: `Server=${server},${port};Database=${database};User Id=${user};Password=${password};Encrypt=true;TrustServerCertificate=true;`
+      // FASE 3: Preparação para Power BI
+      phase3_powerBI: {
+        dataModel: {
+          factTables: factTables.recordset,
+          dimensionTables: dimensionTables.recordset,
+          relationships: relationships.recordset
+        },
+        connectionString: `Server=${server},${port};Database=${database};User Id=${user};Password=${password};Encrypt=true;TrustServerCertificate=true;`,
+        recommendations: {
+          indexes: [
+            "Considere criar índices columnstore em tabelas fact grandes",
+            "Crie índices nas colunas usadas em filtros do Power BI",
+            "Considere particionar tabelas fact por data se aplicável"
+          ],
+          views: [
+            "Crie views agregadas para reduzir carga no Power BI",
+            "Use views para combinar tabelas relacionadas",
+            "Crie views específicas por área de negócio (Vendas, Estoque, Financeiro)"
+          ]
+        }
+      },
+      
+      // FASE 4: Metadados e Informações Adicionais
+      phase4_metadata: {
+        exportInfo: {
+          exportedBy: "ERP ULTRA Inspector",
+          exportMethod: "PLANO_EXPORTACAO_SQL_ULTRA.md",
+          timestamp: new Date().toISOString(),
+          databaseName: database,
+          serverAddress: `${server}:${port}`
+        },
+        statistics: {
+          totalObjects: schemas.recordset.length + tables.recordset.length + views.recordset.length + procedures.recordset.length + functions.recordset.length,
+          largestTable: tables.recordset.reduce((max: any, t: any) => (t.row_count || 0) > (max?.row_count || 0) ? t : max, tables.recordset[0] || {}),
+          mostReferencedTable: dimensionTables.recordset[0] || null
+        }
       }
     };
 

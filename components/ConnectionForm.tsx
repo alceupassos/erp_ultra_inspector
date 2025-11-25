@@ -244,7 +244,8 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            onLog?.(`✅ Exportação completa! ${data.schemas.summary.totalSchemas} schemas, ${data.schemas.summary.totalTables} tabelas, ${data.schemas.summary.totalViews} views`, "success");
+            const summary = data.phase1_schemasAndStructure?.summary || data.schemas?.summary || {};
+            onLog?.(`✅ Plano completo executado! ${summary.totalSchemas || 0} schemas, ${summary.totalTables || 0} tabelas, ${summary.totalViews || 0} views`, "success");
           } catch (e: any) {
             setError(e?.message || "Erro ao exportar dados completos");
             onLog?.(e?.message || "Erro ao exportar", "error");
