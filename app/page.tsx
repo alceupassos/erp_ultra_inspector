@@ -102,13 +102,19 @@ export default function Page() {
       setConnectionSecurity(data.connectionSecurity ?? null);
       
       // Carregar schemas e tabelas automaticamente após análise bem-sucedida
-      if (data.analysis?.database) {
-        if (data.credentials?.user && data.credentials?.password) {
-          addLog("🔄 Iniciando carregamento automático de schemas e tabelas...", "info");
-          loadSchemasTables(data.credentials.user, data.credentials.password, data.analysis.database);
-        } else {
-          addLog("⚠️ Credenciais não disponíveis para carregar schemas automaticamente", "info");
-        }
+      const database = data.analysis?.database || defaultConfig.database;
+      const user = data.credentials?.user || defaultConfig.user;
+      const password = data.credentials?.password;
+      
+      if (database && user && password) {
+        addLog("🔄 Iniciando carregamento automático de schemas e tabelas...", "info");
+        // Usar setTimeout para não bloquear a UI
+        setTimeout(() => {
+          loadSchemasTables(user, password, database);
+        }, 500);
+      } else {
+        addLog("⚠️ Credenciais incompletas - schemas não serão carregados automaticamente", "info");
+        console.log("Debug - database:", database, "user:", user, "password:", password ? "***" : "missing");
       }
     } else {
       setAnalysis(null);
