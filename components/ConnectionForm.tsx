@@ -66,7 +66,14 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
         onAnalysis({ error: message });
         onLog?.(message, "error");
       } else {
-        onAnalysis(json);
+        // Incluir credenciais na resposta para carregar schemas automaticamente
+        onAnalysis({
+          ...json,
+          credentials: {
+            user: user,
+            password: password
+          }
+        });
         onLog?.("Análise concluída", "success");
         if (json?.connectionSecurity === "insecure") {
           onLog?.("Conexão sem TLS/SSL (TrustServerCertificate). Gabriel pode exigir certificado TLS válido no SQL Server.", "info");

@@ -55,6 +55,36 @@ export default function Page() {
     setLogs((prev) => [...prev, { ts: Date.now(), type, msg }].slice(-200));
   }
 
+  async function loadSchemasTables(user: string, password: string, database: string) {
+    try {
+      addLog("Carregando schemas, tabelas e views...", "info");
+      const res = await fetch("/api/schemas-tables", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          server: defaultConfig.server,
+          port: defaultConfig.port,
+          user: user,
+          password: password,
+          database: database
+        })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setSchemasData(data);
+        addLog(`✅ Carregados ${data.summary.totalSchemas} schemas, ${data.summary.totalTables} tabelas e ${data.summary.totalViews} views`, "success");
+        return data;
+      } else {
+        const error = await res.json();
+        addLog("⚠️ Não foi possível carregar schemas: " + (error.error || "Erro desconhecido"), "error");
+        return null;
+      }
+    } catch (e: any) {
+      addLog("⚠️ Erro ao carregar schemas: " + (e?.message || String(e)), "error");
+      return null;
+    }
+  }
+
   function handleAnalysis(data: any) {
     if (data?.analysis) {
       setAnalysis(data.analysis);
@@ -70,6 +100,11 @@ export default function Page() {
       setRecommendations(data.recommendations ?? []);
       setAiSummary(data.aiSummary ?? "");
       setConnectionSecurity(data.connectionSecurity ?? null);
+      
+      // Carregar schemas e tabelas automaticamente após análise bem-sucedida
+      if (data.analysis?.database && data.credentials) {
+        loadSchemasTables(data.credentials.user, data.credentials.password, data.analysis.database);
+      }
     } else {
       setAnalysis(null);
       setVulns(null);
@@ -84,6 +119,7 @@ export default function Page() {
       setRecommendations([]);
       setAiSummary(data?.error ?? "Erro ao analisar banco.");
       setConnectionSecurity(null);
+      setSchemasData(null);
     }
   }
 
@@ -146,46 +182,14 @@ export default function Page() {
                   Performance & Otimização
                 </button>
                 <button
-                  onClick={async () => {
-                    setActiveTab('schemas');
-                    if (!schemasData && analysis) {
-                      setLoading(true);
-                      addLog("Carregando schemas e tabelas...", "info");
-                      try {
-                        // Solicitar senha se necessário (por enquanto usa análise existente)
-                        const res = await fetch("/api/schemas-tables", {
-                          method: "POST",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({
-                            server: defaultConfig.server,
-                            port: defaultConfig.port,
-                            user: defaultConfig.user,
-                            password: prompt("Digite a senha do banco para carregar schemas:") || "",
-                            database: analysis.database || defaultConfig.database
-                          })
-                        });
-                        if (res.ok) {
-                          const data = await res.json();
-                          setSchemasData(data);
-                          addLog(`✅ Carregados ${data.summary.totalSchemas} schemas, ${data.summary.totalTables} tabelas e ${data.summary.totalViews} views`, "success");
-                        } else {
-                          const error = await res.json();
-                          addLog("❌ Erro: " + (error.error || "Falha ao carregar"), "error");
-                        }
-                      } catch (e: any) {
-                        addLog("❌ Erro ao carregar schemas: " + (e?.message || String(e)), "error");
-                      } finally {
-                        setLoading(false);
-                      }
-                    }
-                  }}
+                  onClick={() => setActiveTab('schemas')}
                   className={`px-6 py-3 text-sm font-semibold rounded-t-xl transition-all glow-on-hover ${
                     activeTab === 'schemas'
                       ? 'glow-orange bg-primary/10 glow-border-strong border-b-2 border-primary'
                       : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
                   }`}
                 >
-                  Schemas & Tabelas
+                  Schemas & Tabelas {schemasData && `(${schemasData.summary.totalSchemas})`}
                 </button>
               </div>
             </div>
