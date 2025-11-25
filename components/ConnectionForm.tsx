@@ -210,6 +210,54 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
       >
         📄 Gerar conexão (.md)
       </Button>
+      <Button 
+        type="button" 
+        onClick={async () => {
+          if (!user || !password || !database) return;
+          setLoading(true);
+          onLog?.("🚀 Iniciando exportação completa do plano...", "info");
+          try {
+            const res = await fetch("/api/export/complete", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                server: "104.234.224.238",
+                port: 1445,
+                user,
+                password,
+                database
+              })
+            });
+            if (!res.ok) {
+              const json = await res.json();
+              setError(json?.error || "Erro ao exportar dados completos");
+              onLog?.(json?.error || "Erro ao exportar", "error");
+              return;
+            }
+            const data = await res.json();
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `complete-export-${database}-${Date.now()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            onLog?.(`✅ Exportação completa! ${data.schemas.summary.totalSchemas} schemas, ${data.schemas.summary.totalTables} tabelas, ${data.schemas.summary.totalViews} views`, "success");
+          } catch (e: any) {
+            setError(e?.message || "Erro ao exportar dados completos");
+            onLog?.(e?.message || "Erro ao exportar", "error");
+          } finally {
+            setLoading(false);
+          }
+        }}
+        disabled={loading || !user || !password || !database} 
+        className="w-full bg-primary/20 text-primary hover:bg-primary/30 transition-all glow-border font-semibold glow-on-hover" 
+        variant="outline"
+      >
+        🚀 Executar Plano Completo de Exportação
+      </Button>
       <div className="grid grid-cols-2 gap-2">
         <Button 
           type="button" 
