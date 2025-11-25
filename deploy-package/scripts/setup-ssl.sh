@@ -9,7 +9,7 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-DOMAIN="erpultra.angrax.com.br"
+DOMAIN="erp.angrax.com.br"
 EMAIL="admin@angrax.com.br"  # Altere para seu email
 
 echo -e "${BLUE}🔒 Configurando SSL para ${DOMAIN}${NC}"

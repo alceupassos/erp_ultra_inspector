@@ -43,6 +43,13 @@ npm run build
 echo -e "${YELLOW}📁 Criando diretório de logs...${NC}"
 mkdir -p "$PROJECT_DIR/logs"
 
+echo -e "${YELLOW}🔧 Configurando Nginx...${NC}"
+# Configurar Nginx se os scripts existirem
+if [ -f "scripts/setup-nginx.sh" ]; then
+  chmod +x scripts/setup-nginx.sh
+  bash scripts/setup-nginx.sh || echo -e "${YELLOW}⚠️  Nginx já configurado ou erro na configuração${NC}"
+fi
+
 echo -e "${YELLOW}🔄 Reiniciando aplicação com PM2...${NC}"
 # Instalar PM2 globalmente se não estiver instalado
 if ! command -v pm2 &> /dev/null; then
@@ -58,13 +65,44 @@ pm2 delete erp-ultra-inspector 2>/dev/null || true
 pm2 start ecosystem.config.cjs
 pm2 save
 
+echo -e "${YELLOW}🔒 Configurando SSL (Let's Encrypt)...${NC}"
+# Configurar SSL se o script existir e Nginx estiver configurado
+if [ -f "scripts/setup-ssl.sh" ] && [ -f "/etc/nginx/sites-available/erp-angrax" ]; then
+  chmod +x scripts/setup-ssl.sh
+  echo -e "${YELLOW}⚠️  Certifique-se de que o DNS de erpultra.angrax.com.br aponta para este servidor${NC}"
+  read -p "DNS configurado? (s/N): " dns_ok
+  if [[ "$dns_ok" =~ ^[Ss]$ ]]; then
+    bash scripts/setup-ssl.sh || echo -e "${YELLOW}⚠️  SSL já configurado ou erro na configuração${NC}"
+  else
+    echo -e "${YELLOW}⏭️  Pulando configuração SSL. Execute manualmente depois: bash scripts/setup-ssl.sh${NC}"
+  fi
+fi
+
+echo -e "${YELLOW}🔒 Configurando SSL (Let's Encrypt)...${NC}"
+# Configurar SSL se o script existir e Nginx estiver configurado
+if [ -f "$PROJECT_DIR/scripts/setup-ssl.sh" ] && [ -f "/etc/nginx/sites-available/erp-angrax" ]; then
+  chmod +x "$PROJECT_DIR/scripts/setup-ssl.sh"
+  echo -e "${YELLOW}⚠️  Certifique-se de que o DNS de erp.angrax.com.br aponta para este servidor${NC}"
+  echo -e "${YELLOW}💡 Para configurar SSL depois, execute: ${GREEN}bash scripts/setup-ssl.sh${NC}"
+  # Tentar configurar SSL automaticamente (pode falhar se DNS não estiver pronto)
+  bash "$PROJECT_DIR/scripts/setup-ssl.sh" 2>/dev/null || echo -e "${YELLOW}⏭️  SSL não configurado. Execute manualmente quando DNS estiver pronto: ${GREEN}bash scripts/setup-ssl.sh${NC}"
+else
+  echo -e "${YELLOW}⏭️  Pulando configuração SSL (Nginx não configurado ou script não encontrado)${NC}"
+fi
+
 echo -e "${GREEN}✅ Deploy concluído com sucesso!${NC}"
 echo -e "${GREEN}📊 Status da aplicação:${NC}"
 pm2 status erp-ultra-inspector
+
+echo -e "${BLUE}🌐 Aplicação disponível em:${NC}"
+echo -e "   - http://erp.angrax.com.br"
+echo -e "   - http://147.93.183.55:3000"
 
 echo -e "${YELLOW}💡 Comandos úteis:${NC}"
 echo -e "  - Ver logs: ${GREEN}pm2 logs erp-ultra-inspector${NC}"
 echo -e "  - Reiniciar: ${GREEN}pm2 restart erp-ultra-inspector${NC}"
 echo -e "  - Parar: ${GREEN}pm2 stop erp-ultra-inspector${NC}"
 echo -e "  - Status: ${GREEN}pm2 status${NC}"
+echo -e "  - Configurar SSL: ${GREEN}bash scripts/setup-ssl.sh${NC}"
+echo -e "  - Status Nginx: ${GREEN}systemctl status nginx${NC}"
 

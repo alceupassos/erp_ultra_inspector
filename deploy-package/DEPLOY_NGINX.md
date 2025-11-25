@@ -1,7 +1,5 @@
 # 🔧 Configuração Nginx + SSL - erp.angrax.com.br
 
-**Nota:** O domínio configurado é `erp.angrax.com.br`. Se precisar alterar, edite os arquivos de configuração.
-
 ## Configuração Automática
 
 O deploy automático já configura o Nginx. Mas você pode fazer manualmente:

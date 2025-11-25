@@ -1,0 +1,15 @@
+import { NextResponse } from "next/server";
+
+// Edge function para health check rápido
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
+export async function GET() {
+  return NextResponse.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    service: 'ERP ULTRA Inspector',
+    version: '1.0.0'
+  });
+}
+

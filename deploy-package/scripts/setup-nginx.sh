@@ -9,7 +9,7 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-DOMAIN="erpultra.angrax.com.br"
+DOMAIN="erp.angrax.com.br"
 NGINX_CONF="/etc/nginx/sites-available/erp-angrax"
 NGINX_ENABLED="/etc/nginx/sites-enabled/erp-angrax"
 PROJECT_DIR="/root/erp_ultra_inspector"

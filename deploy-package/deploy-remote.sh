@@ -124,7 +124,7 @@ ENDSSH
 echo ""
 echo -e "${GREEN}✅ Deploy concluído com sucesso!${NC}"
 echo -e "${BLUE}🌐 Aplicação disponível em:${NC}"
-echo -e "   - http://erpultra.angrax.com.br"
+echo -e "   - http://erp.angrax.com.br"
 echo -e "   - http://147.93.183.55:3000"
 echo ""
 echo -e "${YELLOW}🔒 Para configurar SSL (Let's Encrypt):${NC}"

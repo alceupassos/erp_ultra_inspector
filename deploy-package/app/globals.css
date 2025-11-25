@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-[#0a0a0f] text-[#ff8a1f] antialiased;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(255, 138, 31, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 138, 31, 0.03) 0px, transparent 50%);
+  min-height: 100vh;
+}
+
+@layer utilities {
+  /* Iluminação laranja para textos principais */
+  .glow-orange {
+    color: #ff8a1f;
+    text-shadow: 
+      0 0 10px rgba(255, 138, 31, 0.8),
+      0 0 20px rgba(255, 138, 31, 0.5),
+      0 0 30px rgba(255, 138, 31, 0.3),
+      0 0 40px rgba(255, 138, 31, 0.1);
+    filter: drop-shadow(0 0 8px rgba(255, 138, 31, 0.4));
+  }
+
+  /* Iluminação laranja para textos secundários */
+  .glow-orange-soft {
+    color: #ffa64d;
+    text-shadow: 
+      0 0 6px rgba(255, 166, 77, 0.6),
+      0 0 12px rgba(255, 166, 77, 0.3);
+  }
+
+  /* Iluminação laranja para textos terciários */
+  .glow-orange-subtle {
+    color: #ffb366;
+    text-shadow: 
+      0 0 4px rgba(255, 179, 102, 0.4),
+      0 0 8px rgba(255, 179, 102, 0.2);
+  }
+
+  /* Bordas iluminadas */
+  .glow-border {
+    box-shadow: 
+      0 0 0 1px rgba(255, 138, 31, 0.4),
+      0 0 12px rgba(255, 138, 31, 0.2),
+      0 0 24px rgba(255, 138, 31, 0.1),
+      inset 0 0 12px rgba(255, 138, 31, 0.05);
+    border: 1px solid rgba(255, 138, 31, 0.3);
+  }
+
+  .glow-border-strong {
+    box-shadow: 
+      0 0 0 2px rgba(255, 138, 31, 0.6),
+      0 0 20px rgba(255, 138, 31, 0.4),
+      0 0 40px rgba(255, 138, 31, 0.2),
+      inset 0 0 20px rgba(255, 138, 31, 0.1);
+    border: 2px solid rgba(255, 138, 31, 0.5);
+  }
+
+  /* Cards com efeito neumórfico e iluminação laranja */
+  .neu-card {
+    background: 
+      radial-gradient(120% 120% at 10% 10%, rgba(255, 138, 31, 0.12) 0%, rgba(10, 10, 15, 0.98) 40%, rgba(10, 10, 15, 1) 100%);
+    box-shadow: 
+      12px 12px 32px rgba(0, 0, 0, 0.7),
+      -8px -8px 24px rgba(255, 138, 31, 0.05),
+      inset 0 0 20px rgba(255, 138, 31, 0.02),
+      0 0 40px rgba(255, 138, 31, 0.05);
+    transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
+    border: 1px solid rgba(255, 138, 31, 0.15);
+  }
+
+  .neu-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+      16px 16px 40px rgba(0, 0, 0, 0.8),
+      -10px -10px 28px rgba(255, 138, 31, 0.08),
+      inset 0 0 24px rgba(255, 138, 31, 0.03),
+      0 0 50px rgba(255, 138, 31, 0.15);
+    border-color: rgba(255, 138, 31, 0.3);
+  }
+
+  /* Animação de pulso para elementos importantes */
+  .animated-pulse-glow {
+    animation: pulseGlow 2.6s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      text-shadow: 
+        0 0 10px rgba(255, 138, 31, 0.6),
+        0 0 20px rgba(255, 138, 31, 0.4),
+        0 0 30px rgba(255, 138, 31, 0.2);
+    }
+    50% {
+      text-shadow: 
+        0 0 16px rgba(255, 138, 31, 0.9),
+        0 0 32px rgba(255, 138, 31, 0.6),
+        0 0 48px rgba(255, 138, 31, 0.3);
+    }
+  }
+
+  /* Animação suave de bounce */
+  .soft-bounce {
+    animation: softBounce 3s ease-in-out infinite;
+  }
+
+  @keyframes softBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  /* Efeito de brilho para elementos interativos */
+  .glow-on-hover:hover {
+    text-shadow: 
+      0 0 12px rgba(255, 138, 31, 0.9),
+      0 0 24px rgba(255, 138, 31, 0.6),
+      0 0 36px rgba(255, 138, 31, 0.3);
+    transition: text-shadow 200ms ease;
+  }
+
+  /* Background com gradiente escuro */
+  .bg-dark-gradient {
+    background: linear-gradient(135deg, #0a0a0f 0%, #0f0f15 50%, #0a0a0f 100%);
+  }
+
+  /* Texto com contraste otimizado */
+  .text-contrast {
+    color: #ffb366;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
