@@ -40,8 +40,10 @@ npm ci --production=false
 echo -e "${YELLOW}🔨 Construindo aplicação...${NC}"
 npm run build
 
-echo -e "${YELLOW}📁 Criando diretório de logs...${NC}"
+echo -e "${YELLOW}📁 Criando diretórios necessários...${NC}"
 mkdir -p "$PROJECT_DIR/logs"
+mkdir -p "$PROJECT_DIR/nginx"
+mkdir -p "$PROJECT_DIR/scripts"
 
 echo -e "${YELLOW}🔧 Configurando Nginx...${NC}"
 # Configurar Nginx se os scripts existirem
@@ -69,7 +71,7 @@ echo -e "${YELLOW}🔒 Configurando SSL (Let's Encrypt)...${NC}"
 # Configurar SSL se o script existir e Nginx estiver configurado
 if [ -f "scripts/setup-ssl.sh" ] && [ -f "/etc/nginx/sites-available/erp-angrax" ]; then
   chmod +x scripts/setup-ssl.sh
-  echo -e "${YELLOW}⚠️  Certifique-se de que o DNS de erpultra.angrax.com.br aponta para este servidor${NC}"
+  echo -e "${YELLOW}⚠️  Certifique-se de que o DNS de erp.angrax.com.br aponta para este servidor${NC}"
   read -p "DNS configurado? (s/N): " dns_ok
   if [[ "$dns_ok" =~ ^[Ss]$ ]]; then
     bash scripts/setup-ssl.sh || echo -e "${YELLOW}⚠️  SSL já configurado ou erro na configuração${NC}"
