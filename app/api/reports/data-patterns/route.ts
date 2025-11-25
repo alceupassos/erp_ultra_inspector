@@ -85,12 +85,7 @@ export async function GET(req: NextRequest) {
         coverage: p.coverage,
         sampleValues: p.sampleValues
       })),
-      outliers: outliers.map((o) => ({
-        tableName: o.tableName,
-        columnName: o.columnName,
-        description: o.description,
-        severity: o.severity
-      })),
+      outliers,
       distributionAnalysis: {
         emailPatterns: dataDiscovery.dataPatterns.filter((p) => p.patternType === "EMAIL").length,
         phonePatterns: dataDiscovery.dataPatterns.filter((p) => p.patternType === "PHONE").length,
