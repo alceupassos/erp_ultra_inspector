@@ -203,51 +203,190 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
       >
         📄 Gerar conexão (.md)
       </Button>
-      <Button 
-        type="button" 
-        onClick={async () => {
-          if (!user || !password || !database) return;
-          setLoading(true);
-          try {
-            const res = await fetch("/api/export-schema", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                server: "104.234.224.238",
-                port: 1445,
-                user,
-                password,
-                database
-              })
-            });
-            if (!res.ok) {
-              const json = await res.json();
-              setError(json?.error || "Erro ao exportar schema");
-              return;
+      <div className="grid grid-cols-2 gap-2">
+        <Button 
+          type="button" 
+          onClick={async () => {
+            if (!user || !password || !database) return;
+            setLoading(true);
+            try {
+              const res = await fetch("/api/export-schema", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  server: "104.234.224.238",
+                  port: 1445,
+                  user,
+                  password,
+                  database
+                })
+              });
+              if (!res.ok) {
+                const json = await res.json();
+                setError(json?.error || "Erro ao exportar schema");
+                return;
+              }
+              const blob = await res.blob();
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `schema-export-${database}-${Date.now()}.json`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+              onLog?.("Schema exportado com sucesso", "success");
+            } catch (e: any) {
+              setError(e?.message || "Erro ao exportar schema");
+              onLog?.(e?.message || "Erro ao exportar schema", "error");
+            } finally {
+              setLoading(false);
             }
-            const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `schema-export-${database}-${Date.now()}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            onLog?.("Schema exportado com sucesso", "success");
-          } catch (e: any) {
-            setError(e?.message || "Erro ao exportar schema");
-            onLog?.(e?.message || "Erro ao exportar schema", "error");
-          } finally {
-            setLoading(false);
-          }
-        }}
-        disabled={loading || !user || !password || !database} 
-        className="w-full bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border" 
-        variant="outline"
-      >
-        📥 Exportar Schema Completo (JSON)
-      </Button>
+          }}
+          disabled={loading || !user || !password || !database} 
+          className="bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border text-xs" 
+          variant="outline"
+        >
+          📥 Schema
+        </Button>
+        <Button 
+          type="button" 
+          onClick={async () => {
+            if (!user || !password || !database) return;
+            setLoading(true);
+            try {
+              const res = await fetch("/api/export/config", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  server: "104.234.224.238",
+                  port: 1445,
+                  user,
+                  password,
+                  database
+                })
+              });
+              if (!res.ok) {
+                const json = await res.json();
+                setError(json?.error || "Erro ao exportar configurações");
+                return;
+              }
+              const blob = await res.blob();
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `config-export-${database}-${Date.now()}.json`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+              onLog?.("Configurações exportadas com sucesso", "success");
+            } catch (e: any) {
+              setError(e?.message || "Erro ao exportar configurações");
+              onLog?.(e?.message || "Erro ao exportar configurações", "error");
+            } finally {
+              setLoading(false);
+            }
+          }}
+          disabled={loading || !user || !password || !database} 
+          className="bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border text-xs" 
+          variant="outline"
+        >
+          ⚙️ Config
+        </Button>
+        <Button 
+          type="button" 
+          onClick={async () => {
+            if (!user || !password || !database) return;
+            setLoading(true);
+            try {
+              const res = await fetch("/api/export/powerbi", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  server: "104.234.224.238",
+                  port: 1445,
+                  user,
+                  password,
+                  database
+                })
+              });
+              if (!res.ok) {
+                const json = await res.json();
+                setError(json?.error || "Erro ao exportar para Power BI");
+                return;
+              }
+              const blob = await res.blob();
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `powerbi-export-${database}-${Date.now()}.json`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+              onLog?.("Exportação Power BI concluída", "success");
+            } catch (e: any) {
+              setError(e?.message || "Erro ao exportar para Power BI");
+              onLog?.(e?.message || "Erro ao exportar para Power BI", "error");
+            } finally {
+              setLoading(false);
+            }
+          }}
+          disabled={loading || !user || !password || !database} 
+          className="bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border text-xs" 
+          variant="outline"
+        >
+          📊 Power BI
+        </Button>
+        <Button 
+          type="button" 
+          onClick={async () => {
+            if (!user || !password || !database) return;
+            setLoading(true);
+            try {
+              const res = await fetch("/api/export/sql-scripts", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  server: "104.234.224.238",
+                  port: 1445,
+                  user,
+                  password,
+                  database
+                })
+              });
+              if (!res.ok) {
+                const json = await res.json();
+                setError(json?.error || "Erro ao gerar scripts SQL");
+                return;
+              }
+              const data = await res.json();
+              const scripts = data.scripts.complete;
+              const blob = new Blob([scripts], { type: 'text/plain' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `sql-scripts-${database}-${Date.now()}.sql`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+              onLog?.("Scripts SQL gerados com sucesso", "success");
+            } catch (e: any) {
+              setError(e?.message || "Erro ao gerar scripts SQL");
+              onLog?.(e?.message || "Erro ao gerar scripts SQL", "error");
+            } finally {
+              setLoading(false);
+            }
+          }}
+          disabled={loading || !user || !password || !database} 
+          className="bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border text-xs" 
+          variant="outline"
+        >
+          📜 SQL Scripts
+        </Button>
+      </div>
       <p className="text-[11px] text-muted-foreground glow-orange-subtle leading-relaxed">
         Os dados são usados apenas para esta sessão de análise, via conexão
         direta SQL Server (recomendado usuário somente leitura).
