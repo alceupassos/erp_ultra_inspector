@@ -9,6 +9,7 @@ import { ConnectionForm } from "@/components/ConnectionForm";
 import { AnalysisSummary } from "@/components/AnalysisSummary";
 import { SecurityDashboard } from "@/components/SecurityDashboard";
 import { PerformanceDashboard } from "@/components/PerformanceDashboard";
+import { SchemasTablesView } from "@/components/SchemasTablesView";
 import type { 
   AnalysisResult, 
   VulnerabilityMetrics, 
