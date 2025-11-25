@@ -102,8 +102,13 @@ export default function Page() {
       setConnectionSecurity(data.connectionSecurity ?? null);
       
       // Carregar schemas e tabelas automaticamente após análise bem-sucedida
-      if (data.analysis?.database && data.credentials) {
-        loadSchemasTables(data.credentials.user, data.credentials.password, data.analysis.database);
+      if (data.analysis?.database) {
+        if (data.credentials?.user && data.credentials?.password) {
+          addLog("🔄 Iniciando carregamento automático de schemas e tabelas...", "info");
+          loadSchemasTables(data.credentials.user, data.credentials.password, data.analysis.database);
+        } else {
+          addLog("⚠️ Credenciais não disponíveis para carregar schemas automaticamente", "info");
+        }
       }
     } else {
       setAnalysis(null);
