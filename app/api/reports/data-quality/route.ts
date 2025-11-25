@@ -75,7 +75,6 @@ export async function GET(req: NextRequest) {
       })),
       qualityIssues: dataDiscovery.qualityIssues.map((q) => ({
         tableName: q.tableName,
-        schema: q.schema,
         columnName: q.columnName,
         issueType: q.issueType,
         severity: q.severity,
@@ -84,7 +83,6 @@ export async function GET(req: NextRequest) {
       })),
       businessRules: dataDiscovery.businessRules.map((r) => ({
         tableName: r.tableName,
-        schema: r.schema,
         ruleType: r.ruleType,
         description: r.description,
         confidence: r.confidence
