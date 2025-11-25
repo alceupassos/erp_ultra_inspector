@@ -72,24 +72,12 @@ echo -e "${YELLOW}🔒 Configurando SSL (Let's Encrypt)...${NC}"
 if [ -f "scripts/setup-ssl.sh" ] && [ -f "/etc/nginx/sites-available/erp-angrax" ]; then
   chmod +x scripts/setup-ssl.sh
   echo -e "${YELLOW}⚠️  Certifique-se de que o DNS de erp.angrax.com.br aponta para este servidor${NC}"
-  read -p "DNS configurado? (s/N): " dns_ok
-  if [[ "$dns_ok" =~ ^[Ss]$ ]]; then
-    bash scripts/setup-ssl.sh || echo -e "${YELLOW}⚠️  SSL já configurado ou erro na configuração${NC}"
-  else
-    echo -e "${YELLOW}⏭️  Pulando configuração SSL. Execute manualmente depois: bash scripts/setup-ssl.sh${NC}"
-  fi
-fi
-
-echo -e "${YELLOW}🔒 Configurando SSL (Let's Encrypt)...${NC}"
-# Configurar SSL se o script existir e Nginx estiver configurado
-if [ -f "$PROJECT_DIR/scripts/setup-ssl.sh" ] && [ -f "/etc/nginx/sites-available/erp-angrax" ]; then
-  chmod +x "$PROJECT_DIR/scripts/setup-ssl.sh"
-  echo -e "${YELLOW}⚠️  Certifique-se de que o DNS de erp.angrax.com.br aponta para este servidor${NC}"
-  echo -e "${YELLOW}💡 Para configurar SSL depois, execute: ${GREEN}bash scripts/setup-ssl.sh${NC}"
+  echo -e "${YELLOW}💡 Tentando configurar SSL automaticamente...${NC}"
   # Tentar configurar SSL automaticamente (pode falhar se DNS não estiver pronto)
-  bash "$PROJECT_DIR/scripts/setup-ssl.sh" 2>/dev/null || echo -e "${YELLOW}⏭️  SSL não configurado. Execute manualmente quando DNS estiver pronto: ${GREEN}bash scripts/setup-ssl.sh${NC}"
+  bash scripts/setup-ssl.sh 2>/dev/null || echo -e "${YELLOW}⏭️  SSL não configurado. Execute manualmente quando DNS estiver pronto: ${GREEN}bash scripts/setup-ssl.sh${NC}"
 else
   echo -e "${YELLOW}⏭️  Pulando configuração SSL (Nginx não configurado ou script não encontrado)${NC}"
+  echo -e "${YELLOW}💡 Para configurar SSL depois, execute: ${GREEN}bash scripts/setup-ssl.sh${NC}"
 fi
 
 echo -e "${GREEN}✅ Deploy concluído com sucesso!${NC}"
