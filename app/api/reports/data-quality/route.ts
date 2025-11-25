@@ -83,9 +83,10 @@ export async function GET(req: NextRequest) {
       })),
       businessRules: dataDiscovery.businessRules.map((r) => ({
         tableName: r.tableName,
+        columnName: r.columnName,
         ruleType: r.ruleType,
         description: r.description,
-        confidence: r.confidence
+        complianceScore: r.complianceScore
       })),
       qualityScores,
       recommendations: [
