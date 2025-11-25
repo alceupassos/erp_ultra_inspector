@@ -36,8 +36,32 @@ git add -A
 git commit -m "Deploy: $(date +%Y-%m-%d_%H:%M:%S)" || echo "Nenhuma mudança para commitar"
 
 echo -e "${YELLOW}📤 Enviando código para o servidor...${NC}"
+
+# Verificar conectividade SSH primeiro
+echo -e "${YELLOW}🔍 Verificando conectividade SSH...${NC}"
+if ! ssh -o ConnectTimeout=10 -o BatchMode=yes ${VPS_HOST} "echo 'SSH OK'" 2>/dev/null; then
+  echo -e "${RED}❌ Não foi possível conectar ao servidor via SSH${NC}"
+  echo -e "${YELLOW}💡 Possíveis causas:${NC}"
+  echo -e "   - Servidor offline ou IP mudou"
+  echo -e "   - Firewall bloqueando porta 22"
+  echo -e "   - VPN necessária para acesso"
+  echo -e "   - Porta SSH diferente de 22"
+  echo ""
+  echo -e "${YELLOW}📋 Soluções:${NC}"
+  echo -e "   1. Verificar ping: ${GREEN}ping 147.93.183.55${NC}"
+  echo -e "   2. Testar porta: ${GREEN}nc -zv 147.93.183.55 22${NC}"
+  echo -e "   3. Conectar VPN se necessário"
+  echo -e "   4. Ver guia: ${GREEN}cat TROUBLESHOOTING.md${NC}"
+  echo ""
+  echo -e "${YELLOW}⚠️  Tentando continuar mesmo assim...${NC}"
+  read -p "Pressione Enter para continuar ou Ctrl+C para cancelar..."
+fi
+
 # Criar diretório no servidor se não existir
-ssh ${VPS_HOST} "mkdir -p ${VPS_DIR}"
+ssh -o ConnectTimeout=10 ${VPS_HOST} "mkdir -p ${VPS_DIR}" || {
+  echo -e "${RED}❌ Falha ao criar diretório no servidor${NC}"
+  exit 1
+}
 
 # Sincronizar arquivos (excluindo node_modules, .next, etc)
 rsync -avz --progress \
