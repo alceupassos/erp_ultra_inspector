@@ -87,11 +87,11 @@ export default function Page() {
   }
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-screen flex-col bg-dark-gradient">
       <Topbar />
       <div className="fixed top-3 left-3 z-50">
         <button
-          className="px-3 py-2 rounded glow-border bg-primary/20 text-[#ff8a1f] hover:bg-primary/30"
+          className="px-3 py-2 rounded-lg glow-border bg-primary/20 text-primary glow-on-hover hover:bg-primary/30 transition-all"
           onClick={async () => {
             if (status === "authenticated") { router.push("/landing"); return; }
             const r = await fetch("/api/totp"); const j = await r.json();
@@ -109,37 +109,37 @@ export default function Page() {
             onLog={addLog}
           />
         </Sidebar>
-        <section className="flex flex-1 flex-col overflow-hidden">
+        <section className="flex flex-1 flex-col overflow-hidden bg-dark-gradient">
           {/* Navegação por Abas */}
           {analysis && (
-            <div className="border-b bg-transparent">
-              <div className="flex space-x-1 px-6">
+            <div className="border-b border-primary/20 bg-transparent">
+              <div className="flex space-x-1 px-6 pt-2">
                 <button
                   onClick={() => setActiveTab('overview')}
-                  className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors neu-card neu-hover ${
+                  className={`px-6 py-3 text-sm font-semibold rounded-t-xl transition-all glow-on-hover ${
                     activeTab === 'overview'
-                      ? 'text-[#ff8a1f] glow-orange border-b-2 border-[#ff8a1f]'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'glow-orange bg-primary/10 glow-border-strong border-b-2 border-primary'
+                      : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
                   }`}
                 >
                   Visão Geral
                 </button>
                 <button
                   onClick={() => setActiveTab('security')}
-                  className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors neu-card neu-hover ${
+                  className={`px-6 py-3 text-sm font-semibold rounded-t-xl transition-all glow-on-hover ${
                     activeTab === 'security'
-                      ? 'text-[#ff8a1f] glow-orange border-b-2 border-[#ff8a1f]'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'glow-orange bg-primary/10 glow-border-strong border-b-2 border-primary'
+                      : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
                   }`}
                 >
                   Segurança & Conformidade
                 </button>
                 <button
                   onClick={() => setActiveTab('performance')}
-                  className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors neu-card neu-hover ${
+                  className={`px-6 py-3 text-sm font-semibold rounded-t-xl transition-all glow-on-hover ${
                     activeTab === 'performance'
-                      ? 'text-[#ff8a1f] glow-orange border-b-2 border-[#ff8a1f]'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'glow-orange bg-primary/10 glow-border-strong border-b-2 border-primary'
+                      : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
                   }`}
                 >
                   Performance & Otimização
@@ -151,29 +151,33 @@ export default function Page() {
           {/* Conteúdo das Abas */}
           <div className="flex-1 overflow-auto">
             <div className="px-6 py-4">
-              <div className="max-w-3xl mx-auto">
-                <div className="neu-card rounded-2xl p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-sm font-semibold glow-orange">Log de Sessão</h3>
+              <div className="max-w-4xl mx-auto">
+                <div className="neu-card rounded-2xl p-5 neu-hover">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-base font-bold glow-orange animated-pulse-glow">Log de Sessão</h3>
                     <button
                       onClick={() => setLogs([])}
-                      className="text-xs px-2 py-1 rounded glow-border bg-primary/20 text-[#ff8a1f] hover:bg-primary/30"
+                      className="text-xs px-3 py-1.5 rounded-lg glow-border bg-primary/20 text-primary hover:bg-primary/30 transition-all"
                     >
                       Limpar
                     </button>
                   </div>
-                  <div className="h-40 overflow-auto bg-black/20 rounded-xl border border-white/10 p-3">
+                  <div className="h-40 overflow-auto bg-black/30 rounded-xl border border-primary/20 p-4 backdrop-blur-sm">
                     {logs.length === 0 ? (
                       <div className="text-xs text-muted-foreground">Sem eventos</div>
                     ) : (
-                      <ul className="space-y-1">
+                      <ul className="space-y-1.5">
                         {logs.map((l, i) => (
                           <li key={i} className="text-[12px] font-mono">
-                            <span className="text-muted-foreground mr-2">
+                            <span className="text-muted-foreground mr-3">
                               {new Date(l.ts).toLocaleTimeString('pt-BR')}
                             </span>
                             <span className={
-                              l.type === 'error' ? 'text-red-400' : l.type === 'success' ? 'text-green-400' : 'text-[#ff8a1f]'
+                              l.type === 'error' 
+                                ? 'text-red-400 glow-orange-soft' 
+                                : l.type === 'success' 
+                                ? 'text-green-400 glow-orange-soft' 
+                                : 'text-primary glow-orange-subtle'
                             }>
                               {l.msg}
                             </span>
@@ -183,31 +187,31 @@ export default function Page() {
                     )}
                   </div>
                 </div>
-                <div className="neu-card rounded-2xl p-4 mt-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-sm font-semibold glow-orange">Configurações em uso</h3>
+                <div className="neu-card rounded-2xl p-5 mt-4 neu-hover">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-base font-bold glow-orange">Configurações em uso</h3>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div>Servidor</div><div className="text-[#ff8a1f]">{defaultConfig.server}</div>
-                    <div>Porta</div><div className="text-[#ff8a1f]">{defaultConfig.port}</div>
-                    <div>Banco</div><div className="text-[#ff8a1f]">{defaultConfig.database}</div>
-                    <div>Usuário</div><div className="text-[#ff8a1f]">{defaultConfig.user}</div>
-                    <div>TLS</div><div>{connectionSecurity === 'tls' ? 'Segura via TLS/SSL' : connectionSecurity === 'insecure' ? 'Insegura (TrustServerCertificate)' : 'Auto: tenta TLS, fallback inseguro'}</div>
-                    <div>Timeout conexão</div><div>{defaultConfig.connTimeout} ms</div>
-                    <div>Timeout requisição</div><div>{defaultConfig.reqTimeout} ms</div>
-                    <div>TDS</div><div>{defaultConfig.tds}</div>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="text-muted-foreground">Servidor</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.server}</div>
+                    <div className="text-muted-foreground">Porta</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.port}</div>
+                    <div className="text-muted-foreground">Banco</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.database}</div>
+                    <div className="text-muted-foreground">Usuário</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.user}</div>
+                    <div className="text-muted-foreground">TLS</div><div className="text-primary glow-orange-subtle">{connectionSecurity === 'tls' ? '✓ Segura via TLS/SSL' : connectionSecurity === 'insecure' ? '⚠ Insegura (TrustServerCertificate)' : 'Auto: tenta TLS, fallback inseguro'}</div>
+                    <div className="text-muted-foreground">Timeout conexão</div><div className="text-primary glow-orange-subtle">{defaultConfig.connTimeout} ms</div>
+                    <div className="text-muted-foreground">Timeout requisição</div><div className="text-primary glow-orange-subtle">{defaultConfig.reqTimeout} ms</div>
+                    <div className="text-muted-foreground">TDS</div><div className="text-primary glow-orange-subtle">{defaultConfig.tds}</div>
                   </div>
                 </div>
-                <div className="neu-card rounded-2xl p-4 mt-4">
-                  <div className="mb-2">
-                    <h3 className="text-sm font-semibold glow-orange">Sugestões para resolução</h3>
+                <div className="neu-card rounded-2xl p-5 mt-4 neu-hover">
+                  <div className="mb-3">
+                    <h3 className="text-base font-bold glow-orange">Sugestões para resolução</h3>
                   </div>
-                  <ul className="text-xs space-y-1">
-                    <li className={hasLoginIssue ? 'text-red-400' : ''}>Verificar usuário/senha e permissões no banco.</li>
-                    <li className={hasPortIssue ? 'text-red-400' : ''}>Liberar porta 1445 no firewall/NAT.</li>
-                    <li className={hasTlsFallback ? 'text-red-400' : ''}>Configurar certificado TLS no SQL Server e usar FQDN.</li>
-                    <li className={hasDbIssue ? 'text-red-400' : ''}>Confirmar nome do database e acesso do login.</li>
-                    <li className={hasTdeDisabled ? 'text-red-400' : ''}>Habilitar TDE no database (criptografia transparente em repouso).</li>
+                  <ul className="text-sm space-y-2">
+                    <li className={hasLoginIssue ? 'text-red-400 glow-orange-soft' : 'text-muted-foreground'}>• Verificar usuário/senha e permissões no banco.</li>
+                    <li className={hasPortIssue ? 'text-red-400 glow-orange-soft' : 'text-muted-foreground'}>• Liberar porta 1445 no firewall/NAT.</li>
+                    <li className={hasTlsFallback ? 'text-red-400 glow-orange-soft' : 'text-muted-foreground'}>• Configurar certificado TLS no SQL Server e usar FQDN.</li>
+                    <li className={hasDbIssue ? 'text-red-400 glow-orange-soft' : 'text-muted-foreground'}>• Confirmar nome do database e acesso do login.</li>
+                    <li className={hasTdeDisabled ? 'text-red-400 glow-orange-soft' : 'text-muted-foreground'}>• Habilitar TDE no database (criptografia transparente em repouso).</li>
                   </ul>
                 </div>
               </div>

@@ -57,8 +57,9 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+  let pool: sql.ConnectionPool | null = null;
   try {
-    const body = await req.json();
+    const body = await req.json().catch(() => ({}));
 
     const {
       server = "104.234.224.238",
@@ -75,19 +76,33 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const analysis = await inspectSqlServer({
-      server,
-      port: Number(port),
-      user,
-      password,
-      database
-    });
-
-    const vulns = computeVulnerabilityMetrics(analysis);
-    const kpis = computeStructuralKpis(analysis);
+    // Análise estrutural básica
+    let analysis, vulns, kpis;
+    try {
+      analysis = await inspectSqlServer({
+        server,
+        port: Number(port),
+        user,
+        password,
+        database
+      });
+      vulns = computeVulnerabilityMetrics(analysis);
+      kpis = computeStructuralKpis(analysis);
+    } catch (e: any) {
+      console.error("Erro na análise estrutural:", e);
+      return NextResponse.json(
+        {
+          error: "Falha ao conectar ou analisar estrutura do banco",
+          details: e?.message ?? String(e)
+        },
+        { status: 500 }
+      );
+    }
 
     // Nova análise de segurança
-    const { pool, mode } = await createSecurePool(server, Number(port), user, password, database);
+    const { pool: securityPool, mode } = await createSecurePool(server, Number(port), user, password, database);
+    pool = securityPool;
+    
     let securityAnalysis: any = {
       securityMetrics: {
         sensitiveDataScore: 0,
@@ -96,6 +111,7 @@ export async function POST(req: NextRequest) {
         encryptionScore: 0,
         overallSecurityScore: 0,
         totalSensitiveColumns: 0,
+        criticalRiskColumns: 0,
         highRiskUsers: 0,
         dangerousFeaturesEnabled: 0
       },
@@ -104,7 +120,7 @@ export async function POST(req: NextRequest) {
       auditConfig: null
     };
     try {
-      securityAnalysis = await inspectSecurity(pool, database);
+      securityAnalysis = await inspectSecurity(securityPool, database);
     } catch (e) {
       console.warn("Falha na análise de segurança:", e);
     }
@@ -130,18 +146,25 @@ export async function POST(req: NextRequest) {
       recommendations: []
     };
     try {
-      performanceAnalysis = await inspectPerformance(pool);
+      performanceAnalysis = await inspectPerformance(securityPool);
     } catch (e) {
       console.warn("Falha na análise de performance:", e);
     }
 
-    const aiSummary = await describeSchemaWithAI({
-      analysis,
-      vulns,
-      kpis,
-      securityMetrics: securityAnalysis.securityMetrics,
-      performanceMetrics: performanceAnalysis.performanceMetrics
-    });
+    // Análise AI (pode falhar sem quebrar tudo)
+    let aiSummary = "";
+    try {
+      aiSummary = await describeSchemaWithAI({
+        analysis,
+        vulns,
+        kpis,
+        securityMetrics: securityAnalysis.securityMetrics,
+        performanceMetrics: performanceAnalysis.performanceMetrics
+      });
+    } catch (e) {
+      console.warn("Falha na análise AI:", e);
+      aiSummary = "Análise generativa não disponível no momento.";
+    }
 
     return NextResponse.json({
       analysis,
@@ -167,5 +190,13 @@ export async function POST(req: NextRequest) {
       },
       { status: 500 }
     );
+  } finally {
+    if (pool) {
+      try {
+        pool.close();
+      } catch (e) {
+        console.warn("Erro ao fechar pool:", e);
+      }
+    }
   }
 }

@@ -4,12 +4,14 @@ export async function describeSchemaWithAI(input: {
   analysis: AnalysisResult;
   vulns: VulnerabilityMetrics;
   kpis: StructuralKpis;
+  securityMetrics?: any;
+  performanceMetrics?: any;
 }): Promise<string> {
   if (!process.env.OPENAI_API_KEY) {
     return "API key da OpenAI (OPENAI_API_KEY) não configurada. Configure para habilitar a análise generativa de vulnerabilidades e oportunidades.";
   }
 
-  const { analysis, vulns, kpis } = input;
+  const { analysis, vulns, kpis, securityMetrics, performanceMetrics } = input;
   const safeAvgCols = Number(kpis?.avgColumnsPerTable ?? 0).toFixed(2);
   const safeAvgRows = Number(kpis?.avgRowCount ?? 0).toFixed(2);
   const safeMaxRows = Number(kpis?.maxRowCount ?? 0);
@@ -58,30 +60,66 @@ ${analysis.tables
   )
   .join("\n")}
 
+${securityMetrics ? `
+Métricas de Segurança:
+- Score de dados sensíveis: ${securityMetrics.sensitiveDataScore}/100
+- Score de acesso de usuários: ${securityMetrics.userAccessScore}/100
+- Score de configuração: ${securityMetrics.securityConfigurationScore}/100
+- Score de criptografia: ${securityMetrics.encryptionScore}/100
+- Colunas sensíveis detectadas: ${securityMetrics.totalSensitiveColumns}
+- Usuários de alto risco: ${securityMetrics.highRiskUsers}
+` : ''}
+
+${performanceMetrics ? `
+Métricas de Performance:
+- Eficiência de índices: ${performanceMetrics.indexEfficiency}/100
+- Performance de queries: ${performanceMetrics.queryPerformanceScore}/100
+- Score de fragmentação: ${performanceMetrics.fragmentationScore}/100
+- Score de uso de memória: ${performanceMetrics.memoryUsageScore}/100
+- Índices faltando: ${performanceMetrics.missingIndexes}
+- Índices não utilizados: ${performanceMetrics.unusedIndexes}
+- Índices fragmentados: ${performanceMetrics.fragmentedIndexes}
+` : ''}
+
 Agora faça uma análise profunda e criativa, como se estivesse preparando um relatório executivo e técnico ao mesmo tempo, incluindo seções, bullet points, e sugestões de fluxos/diagramas que poderiam virar gráficos no front-end.
 `;
 
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      model: "gpt-5.1",
-      input: prompt
-    })
-  });
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: "Você é um especialista em análise de bancos de dados SQL Server, segurança de dados e arquitetura de ERPs."
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ],
+        temperature: 0.7,
+        max_tokens: 2000
+      })
+    });
 
-  if (!response.ok) {
-    return `Falha ao chamar Angra DB Manager: ${response.status} ${response.statusText}`;
+    if (!response.ok) {
+      const errorText = await response.text();
+      return `Falha ao chamar Angra DB Manager: ${response.status} ${response.statusText}. ${errorText}`;
+    }
+
+    const json = await response.json();
+    const text = json.choices?.[0]?.message?.content ?? 
+                 json.content ?? 
+                 "Análise gerada com sucesso, mas formato de resposta inesperado.";
+
+    return text;
+  } catch (error: any) {
+    return `Erro ao processar análise AI: ${error?.message ?? String(error)}`;
   }
-
-  const json = await response.json();
-  const text =
-    json.output?.[0]?.content?.[0]?.text ??
-    json.content?.[0]?.text ??
-    JSON.stringify(json, null, 2);
-
-  return text;
 }

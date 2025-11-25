@@ -304,31 +304,52 @@ async function analyzeDuplicates(pool: sql.ConnectionPool): Promise<QualityIssue
 async function analyzeNullValues(pool: sql.ConnectionPool): Promise<QualityIssue[]> {
   const issues: QualityIssue[] = [];
   
-  const result = await pool.request().query(`
-    SELECT 
-      t.name AS table_name,
-      c.name AS column_name,
-      c.is_nullable,
-      (SELECT COUNT(*) FROM ${tableName} WHERE ${columnName} IS NULL) as null_count,
-      (SELECT COUNT(*) FROM ${tableName}) as total_rows
-    FROM sys.tables t
-    JOIN sys.columns c ON t.object_id = c.object_id
-    WHERE t.is_ms_shipped = 0
+  const tablesResult = await pool.request().query(`
+    SELECT name FROM sys.tables WHERE is_ms_shipped = 0
   `);
 
-  for (const row of result.recordset) {
-    if (row.null_count > 0 && row.null_count / row.total_rows > 0.1) {
-      issues.push({
-        tableName: row.table_name,
-        columnName: row.column_name,
-        issueType: 'NULL_VALUE',
-        severity: row.null_count / row.total_rows > 0.3 ? 'HIGH' : 'MEDIUM',
-        affectedRows: row.null_count,
-        totalRows: row.total_rows,
-        percentage: (row.null_count / row.total_rows) * 100,
-        sampleProblems: [],
-        description: `Alta taxa de valores nulos (${(row.null_count / row.total_rows * 100).toFixed(1)}%) na coluna ${row.column_name}`
-      });
+  for (const table of tablesResult.recordset) {
+    const tableName = table.name;
+    
+    const columnsResult = await pool.request().query(`
+      SELECT 
+        c.name AS column_name,
+        c.is_nullable
+      FROM sys.columns c
+      WHERE c.object_id = OBJECT_ID('${tableName}')
+    `);
+
+    for (const column of columnsResult.recordset) {
+      const columnName = column.column_name;
+      
+      try {
+        const nullResult = await pool.request().query(`
+          SELECT 
+            COUNT(*) as null_count,
+            (SELECT COUNT(*) FROM [${tableName}]) as total_rows
+          FROM [${tableName}]
+          WHERE [${columnName}] IS NULL
+        `);
+
+        const nullCount = nullResult.recordset[0]?.null_count ?? 0;
+        const totalRows = nullResult.recordset[0]?.total_rows ?? 0;
+        
+        if (nullCount > 0 && totalRows > 0 && (nullCount / totalRows) > 0.1) {
+          issues.push({
+            tableName,
+            columnName,
+            issueType: 'NULL_VALUE',
+            severity: (nullCount / totalRows) > 0.3 ? 'HIGH' : 'MEDIUM',
+            affectedRows: nullCount,
+            totalRows,
+            percentage: (nullCount / totalRows) * 100,
+            sampleProblems: [],
+            description: `Alta taxa de valores nulos (${((nullCount / totalRows) * 100).toFixed(1)}%) na coluna ${columnName}`
+          });
+        }
+      } catch (error) {
+        console.error(`Erro ao analisar valores nulos em ${tableName}.${columnName}:`, error);
+      }
     }
   }
 
@@ -683,4 +704,105 @@ async function analyzeReferenceConsistencyFixed(pool: sql.ConnectionPool): Promi
   }
 
   return rules;
+}
+
+function calculateQualityScores(
+  dataPatterns: DataPattern[],
+  qualityIssues: QualityIssue[],
+  businessRules: BusinessRule[]
+): {
+  dataQualityScore: number;
+  completenessScore: number;
+  consistencyScore: number;
+  uniquenessScore: number;
+  accuracyScore: number;
+  totalAnomalies: number;
+} {
+  // Calcular total de anomalias
+  const totalAnomalies = qualityIssues.reduce((sum, issue) => sum + issue.affectedRows, 0);
+
+  // Score de completude (baseado em valores nulos)
+  const nullIssues = qualityIssues.filter(i => i.issueType === 'NULL_VALUE');
+  const completenessScore = nullIssues.length > 0
+    ? Math.max(0, 100 - (nullIssues.reduce((sum, i) => sum + i.percentage, 0) / nullIssues.length))
+    : 100;
+
+  // Score de consistência (baseado em regras de negócio)
+  const consistencyScore = businessRules.length > 0
+    ? businessRules.reduce((sum, rule) => sum + rule.complianceScore, 0) / businessRules.length
+    : 100;
+
+  // Score de unicidade (baseado em duplicatas)
+  const duplicateIssues = qualityIssues.filter(i => i.issueType === 'DUPLICATE');
+  const uniquenessScore = duplicateIssues.length > 0
+    ? Math.max(0, 100 - (duplicateIssues.reduce((sum, i) => sum + i.percentage, 0) / duplicateIssues.length))
+    : 100;
+
+  // Score de precisão (baseado em formatos inválidos e outliers)
+  const formatIssues = qualityIssues.filter(i => i.issueType === 'INVALID_FORMAT' || i.issueType === 'OUTLIER');
+  const accuracyScore = formatIssues.length > 0
+    ? Math.max(0, 100 - (formatIssues.reduce((sum, i) => sum + i.percentage, 0) / formatIssues.length))
+    : 100;
+
+  // Score geral de qualidade (média ponderada)
+  const dataQualityScore = Math.round(
+    (completenessScore * 0.25) +
+    (consistencyScore * 0.30) +
+    (uniquenessScore * 0.25) +
+    (accuracyScore * 0.20)
+  );
+
+  return {
+    dataQualityScore,
+    completenessScore: Math.round(completenessScore),
+    consistencyScore: Math.round(consistencyScore),
+    uniquenessScore: Math.round(uniquenessScore),
+    accuracyScore: Math.round(accuracyScore),
+    totalAnomalies
+  };
+}
+
+function generateDataQualityRecommendations(
+  qualityIssues: QualityIssue[],
+  businessRules: BusinessRule[]
+): string[] {
+  const recommendations: string[] = [];
+
+  // Recomendações baseadas em issues críticos
+  const criticalIssues = qualityIssues.filter(i => i.severity === 'CRITICAL');
+  if (criticalIssues.length > 0) {
+    recommendations.push(`Corrigir ${criticalIssues.length} problemas críticos de qualidade de dados`);
+  }
+
+  // Recomendações de duplicatas
+  const duplicateIssues = qualityIssues.filter(i => i.issueType === 'DUPLICATE');
+  if (duplicateIssues.length > 0) {
+    recommendations.push(`Implementar constraints de unicidade para ${duplicateIssues.length} colunas com duplicatas`);
+  }
+
+  // Recomendações de valores nulos
+  const nullIssues = qualityIssues.filter(i => i.issueType === 'NULL_VALUE' && i.percentage > 30);
+  if (nullIssues.length > 0) {
+    recommendations.push(`Revisar ${nullIssues.length} colunas com alta taxa de valores nulos (>30%)`);
+  }
+
+  // Recomendações de formatos
+  const formatIssues = qualityIssues.filter(i => i.issueType === 'INVALID_FORMAT');
+  if (formatIssues.length > 0) {
+    recommendations.push(`Implementar validação de formato para ${formatIssues.length} colunas com dados inválidos`);
+  }
+
+  // Recomendações de regras de negócio
+  const lowComplianceRules = businessRules.filter(r => r.complianceScore < 80);
+  if (lowComplianceRules.length > 0) {
+    recommendations.push(`Revisar ${lowComplianceRules.length} regras de negócio com baixa conformidade (<80%)`);
+  }
+
+  // Recomendações de outliers
+  const outlierIssues = qualityIssues.filter(i => i.issueType === 'OUTLIER' && i.severity === 'HIGH');
+  if (outlierIssues.length > 0) {
+    recommendations.push(`Investigar ${outlierIssues.length} colunas com valores outliers significativos`);
+  }
+
+  return recommendations;
 }

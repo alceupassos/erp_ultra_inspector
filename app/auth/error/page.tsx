@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
-export default function AuthErrorPage() {
+function AuthErrorContent() {
   const params = useSearchParams();
   const err = params.get("error") || "Unknown";
   const [creds, setCreds] = useState<{ server: string; port: number; database: string; user: string; password?: string } | null>(null);
@@ -57,5 +57,13 @@ export default function AuthErrorPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AuthErrorPage() {
+  return (
+    <Suspense fallback={<div className="p-8">Carregando...</div>}>
+      <AuthErrorContent />
+    </Suspense>
   );
 }

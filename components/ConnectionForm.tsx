@@ -95,61 +95,83 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
   }
 
   return (
-    <form className="space-y-3" onSubmit={handleSubmit}>
+    <form className="space-y-4" onSubmit={handleSubmit}>
       {error && (
-        <div role="alert" className="rounded-xl border border-red-500/40 bg-red-900/20 text-red-200 p-3 glow-border">
-          {error}
-          <div className="grid grid-cols-2 gap-2 text-xs mt-2">
-            <div>Servidor</div><div>104.234.224.238</div>
-            <div>Porta</div><div>1445</div>
-            <div>Banco</div><div>{database || ""}</div>
-            <div>Usuário</div><div>{user || ""}</div>
+        <div role="alert" className="rounded-xl border-2 border-red-500/60 bg-red-900/30 text-red-300 p-4 glow-border backdrop-blur-sm">
+          <div className="font-semibold mb-2 glow-orange-soft">⚠️ Erro de Conexão</div>
+          <div className="text-sm">{error}</div>
+          <div className="grid grid-cols-2 gap-2 text-xs mt-3 pt-3 border-t border-red-500/30">
+            <div className="text-muted-foreground">Servidor</div><div className="text-primary glow-orange-subtle">104.234.224.238</div>
+            <div className="text-muted-foreground">Porta</div><div className="text-primary glow-orange-subtle">1445</div>
+            <div className="text-muted-foreground">Banco</div><div className="text-primary glow-orange-subtle">{database || ""}</div>
+            <div className="text-muted-foreground">Usuário</div><div className="text-primary glow-orange-subtle">{user || ""}</div>
           </div>
         </div>
       )}
-      <div className="space-y-1">
-        <Label>Servidor</Label>
-        <Input value="104.234.224.238" disabled />
+      <div className="space-y-2">
+        <Label className="text-sm font-semibold glow-orange-subtle">Servidor</Label>
+        <Input 
+          value="104.234.224.238" 
+          disabled 
+          className="bg-black/30 border-primary/20 text-primary glow-orange-subtle"
+        />
       </div>
-      <div className="space-y-1">
-        <Label>Porta</Label>
-        <Input value="1445" disabled />
+      <div className="space-y-2">
+        <Label className="text-sm font-semibold glow-orange-subtle">Porta</Label>
+        <Input 
+          value="1445" 
+          disabled 
+          className="bg-black/30 border-primary/20 text-primary glow-orange-subtle"
+        />
       </div>
-      <div className="space-y-1">
-        <Label>Usuário SQL</Label>
+      <div className="space-y-2">
+        <Label className="text-sm font-semibold glow-orange-subtle">Usuário SQL</Label>
         <Input
           placeholder="ex.: ops"
           value={user}
           onChange={(e) => setUser(e.target.value)}
           required
+          className="bg-black/30 border-primary/30 text-primary placeholder:text-muted-foreground focus:border-primary focus:glow-border"
         />
       </div>
-      <div className="space-y-1">
-        <Label>Senha</Label>
+      <div className="space-y-2">
+        <Label className="text-sm font-semibold glow-orange-subtle">Senha</Label>
         <Input
           type="password"
           placeholder="••••••••"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="bg-black/30 border-primary/30 text-primary placeholder:text-muted-foreground focus:border-primary focus:glow-border"
         />
       </div>
-      <div className="space-y-1">
-        <Label>Banco de dados</Label>
+      <div className="space-y-2">
+        <Label className="text-sm font-semibold glow-orange-subtle">Banco de dados</Label>
         <Input
           placeholder="ex.: sgq"
           value={database}
           onChange={(e) => setDatabase(e.target.value)}
           required
+          className="bg-black/30 border-primary/30 text-primary placeholder:text-muted-foreground focus:border-primary focus:glow-border"
         />
       </div>
-      <Button type="submit" disabled={loading} className="w-full">
-        {loading ? "Analisando banco..." : "Analisar ERP ULTRA"}
+      <Button 
+        type="submit" 
+        disabled={loading} 
+        className="w-full bg-primary/20 text-primary glow-border hover:bg-primary/30 transition-all font-semibold glow-on-hover"
+      >
+        {loading ? "🔍 Analisando banco..." : "🚀 Analisar ERP ULTRA"}
       </Button>
-      <Button type="button" onClick={generateMd} disabled={!user || !database} className="w-full" variant="outline">
-        Gerar conexão (.md)
+      <Button 
+        type="button" 
+        onClick={generateMd} 
+        disabled={!user || !database} 
+        className="w-full bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border" 
+        variant="outline"
+      >
+        📄 Gerar conexão (.md)
       </Button>
-      <p className="text-[11px] text-muted-foreground">
+      <p className="text-[11px] text-muted-foreground glow-orange-subtle leading-relaxed">
         Os dados são usados apenas para esta sessão de análise, via conexão
         direta SQL Server (recomendado usuário somente leitura).
       </p>

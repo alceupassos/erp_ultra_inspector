@@ -32,7 +32,11 @@ export async function inspectSecurity(
 }
 
 async function detectSensitiveData(pool: sql.ConnectionPool): Promise<SensitiveDataInfo[]> {
-  const sensitivePatterns = [
+  const sensitivePatterns: Array<{
+    pattern: RegExp;
+    type: SensitiveDataInfo['sensitiveType'];
+    risk: SensitiveDataInfo['riskLevel'];
+  }> = [
     // PII Brasileiro
     { pattern: /cpf|cgc|cadastro.*federal/i, type: 'CPF', risk: 'CRITICAL' },
     { pattern: /rg|registro.*geral/i, type: 'RG', risk: 'HIGH' },

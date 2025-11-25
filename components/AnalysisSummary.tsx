@@ -36,21 +36,29 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
 
   if (!analysis || !metrics) {
     return (
-      <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-        Conecte-se ao banco ERP ULTRA ao lado para ver o mapa completo do sistema, KPIs e vulnerabilidades.
+      <div className="flex h-full items-center justify-center text-center p-8">
+        <div className="max-w-md">
+          <div className="text-6xl mb-4">🔍</div>
+          <p className="text-lg font-semibold glow-orange mb-2">
+            Conecte-se ao banco ERP ULTRA
+          </p>
+          <p className="text-sm text-muted-foreground glow-orange-subtle">
+            Use o formulário ao lado para ver o mapa completo do sistema, KPIs e vulnerabilidades.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex h-full flex-col gap-4 p-4">
+    <div className="flex h-full flex-col gap-6 p-6">
       <section className="grid gap-4">
-        <Card className="neu-card">
+        <Card className="neu-card neu-hover">
           <CardHeader>
-            <CardTitle className="glow-orange">Modelos de Testes</CardTitle>
+            <CardTitle className="glow-orange text-lg font-bold">Modelos de Testes</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-2 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-2">
               {[
                 { name: "Validação de Conexão SQL", ok: true },
                 { name: "Mapeamento de Estrutura", ok: !!analysis },
@@ -60,18 +68,18 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
                 { name: "Qualidade de Dados", ok: false },
                 { name: "Relatório (Angra DB Manager)", ok: !!aiSummary }
               ].map((t, i) => (
-                <div key={i} className="flex items-center justify-between rounded-xl border border-white/10 p-3">
-                  <div className="text-sm">{t.name}</div>
+                <div key={i} className="flex items-center justify-between rounded-xl border border-primary/20 bg-black/20 p-4 neu-hover">
+                  <div className="text-sm text-muted-foreground glow-orange-subtle">{t.name}</div>
                   <div className="flex items-center gap-2">
                     {t.ok ? (
-                      <Badge className="bg-green-100 text-green-800 border-green-200">Executado</Badge>
+                      <Badge className="bg-green-500/20 text-green-400 border-green-500/40 glow-border">Executado</Badge>
                     ) : (
-                      <Badge className="bg-orange-100 text-orange-800 border-orange-200">Pendente</Badge>
+                      <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/40 glow-border">Pendente</Badge>
                     )}
                     {t.ok ? (
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <CheckCircle className="w-5 h-5 text-green-400" />
                     ) : (
-                      <AlertTriangle className="w-4 h-4 text-orange-600" />
+                      <AlertTriangle className="w-5 h-5 text-orange-400" />
                     )}
                   </div>
                 </div>
@@ -81,48 +89,48 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
         </Card>
       </section>
       <section className="grid gap-4 md:grid-cols-4">
-        <Card>
+        <Card className="neu-card neu-hover">
           <CardHeader>
-            <CardTitle>Qtd. de tabelas</CardTitle>
+            <CardTitle className="glow-orange-subtle text-sm font-semibold">Qtd. de tabelas</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-semibold">{metrics.totalTables}</p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-3xl font-bold glow-orange">{metrics.totalTables}</p>
+            <p className="text-xs text-muted-foreground mt-2">
               Total de entidades físicas no banco
             </p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="neu-card neu-hover">
           <CardHeader>
-            <CardTitle>Linhas (aprox.)</CardTitle>
+            <CardTitle className="glow-orange-subtle text-sm font-semibold">Linhas (aprox.)</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-semibold truncate">
+            <p className="text-3xl font-bold glow-orange truncate">
               {new Intl.NumberFormat("pt-BR", { notation: "compact", maximumFractionDigits: 1 }).format(metrics.totalRows)}
             </p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground mt-2">
               Soma de linhas em todas as tabelas
             </p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="neu-card neu-hover">
           <CardHeader>
-            <CardTitle>Áreas funcionais</CardTitle>
+            <CardTitle className="glow-orange-subtle text-sm font-semibold">Áreas funcionais</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-semibold">{metrics.distinctAreas}</p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-3xl font-bold glow-orange">{metrics.distinctAreas}</p>
+            <p className="text-xs text-muted-foreground mt-2">
               Agrupamento heurístico (clientes, financeiro, estoque, etc.)
             </p>
           </CardContent>
         </Card>
         {vulns && (
-          <Card>
+          <Card className="neu-card neu-hover">
             <CardHeader>
-              <CardTitle>Score de risco (heurístico)</CardTitle>
+              <CardTitle className="glow-orange-subtle text-sm font-semibold">Score de risco (heurístico)</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">
+              <p className="text-3xl font-bold glow-orange">
                 {Math.min(
                   100,
                   Math.round(
@@ -134,7 +142,7 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
                 )}
                 /100
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground mt-2">
                 Índice composto de vulnerabilidades estruturais
               </p>
             </CardContent>
@@ -153,18 +161,18 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-[2fr,3fr]">
-        <Card className="max-h-80 overflow-auto">
+        <Card className="max-h-80 overflow-auto neu-card neu-hover">
           <CardHeader>
-            <CardTitle>Mapa de tabelas</CardTitle>
+            <CardTitle className="glow-orange text-sm font-bold">Mapa de tabelas</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-1 text-xs">
+            <ul className="space-y-2 text-xs">
               {analysis.tables.map((t) => (
-                <li key={t.objectId}>
-                  <span className="font-mono text-[11px] text-primary">
+                <li key={t.objectId} className="p-2 rounded-lg bg-black/20 border border-primary/10 hover:border-primary/30 transition-all">
+                  <span className="font-mono text-[11px] text-primary glow-orange-subtle">
                     {t.schema}.{t.name}
                   </span>{" "}
-                  <span className="text-muted-foreground">
+                  <span className="text-muted-foreground glow-orange-subtle">
                     — {t.purpose} ({t.rowCount.toLocaleString("pt-BR")} linhas, PK:{" "}
                     {t.primaryKey.length ? t.primaryKey.join(", ") : "N/A"}, FKs:{" "}
                     {t.foreignKeys.length})
@@ -175,14 +183,14 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="neu-card neu-hover">
           <CardHeader>
-            <CardTitle>Análise descritiva (Angra DB Manager)</CardTitle>
+            <CardTitle className="glow-orange text-sm font-bold">Análise descritiva (Angra DB Manager)</CardTitle>
           </CardHeader>
           <CardContent>
             <Textarea
               readOnly
-              className="h-64 text-xs"
+              className="h-64 text-xs bg-black/30 border-primary/20 text-muted-foreground glow-orange-subtle"
               value={aiSummary || "Sem análise generativa disponível."}
             />
           </CardContent>
@@ -191,10 +199,3 @@ export function AnalysisSummary({ analysis, vulns, kpis, aiSummary }: Props) {
     </div>
   );
 }
-      <OraclePanel
-        area="comercial"
-        filters={{}}
-        kpis={metrics}
-        sampleRows={analysis.tables.slice(0, 5).map(t => ({ table: `${t.schema}.${t.name}`, rows: t.rowCount, pk: t.primaryKey }))}
-        metadata={{ totalTables: analysis.tables.length }}
-      />
