@@ -11,29 +11,62 @@ async function createSecurePool(
   port: number,
   user: string,
   password: string,
-  database: string
+  database: string,
+  useTls: boolean = true
 ): Promise<{ pool: sql.ConnectionPool; mode: "tls" | "insecure" }> {
-  const secure: sql.config = {
-    server,
-    port,
-    user,
-    password,
-    database,
-    options: {
-      encrypt: true,
-      trustServerCertificate: false,
-      enableArithAbort: true
-    },
-    connectionTimeout: 15000,
-    requestTimeout: 15000,
-    pool: { max: 5, min: 0, idleTimeoutMillis: 30000 }
+  // Tentar múltiplas configurações até uma funcionar
+  type ConfigItem = {
+    config: sql.config;
+    mode: "tls" | "insecure";
   };
-
-  try {
-    const pool = await sql.connect(secure);
-    return { pool, mode: "tls" };
-  } catch {
-    const fallback: sql.config = {
+  
+  const configs: ConfigItem[] = [];
+  
+  if (useTls) {
+    // 1. TLS estrito (sem trustServerCertificate)
+    configs.push({
+      config: {
+        server,
+        port,
+        user,
+        password,
+        database,
+        options: {
+          encrypt: true,
+          trustServerCertificate: false,
+          enableArithAbort: true
+        },
+        connectionTimeout: 15000,
+        requestTimeout: 15000,
+        pool: { max: 5, min: 0, idleTimeoutMillis: 30000 }
+      },
+      mode: "tls"
+    });
+    
+    // 2. TLS com trustServerCertificate
+    configs.push({
+      config: {
+        server,
+        port,
+        user,
+        password,
+        database,
+        options: {
+          encrypt: true,
+          trustServerCertificate: true,
+          enableArithAbort: true
+        },
+        connectionTimeout: 15000,
+        requestTimeout: 15000,
+        pool: { max: 5, min: 0, idleTimeoutMillis: 30000 }
+      },
+      mode: "tls"
+    });
+  }
+  
+  // 3. Sem TLS (insegura) - sempre tentar como fallback
+  configs.push({
+    config: {
       server,
       port,
       user,
@@ -47,10 +80,24 @@ async function createSecurePool(
       connectionTimeout: 15000,
       requestTimeout: 15000,
       pool: { max: 5, min: 0, idleTimeoutMillis: 30000 }
-    };
-    const pool = await sql.connect(fallback);
-    return { pool, mode: "insecure" };
+    },
+    mode: "insecure"
+  });
+  
+  // Tentar cada configuração até uma funcionar
+  for (const { config, mode } of configs) {
+    try {
+      const pool = await sql.connect(config);
+      // Testar conexão
+      await pool.request().query("SELECT 1");
+      return { pool, mode };
+    } catch (error) {
+      console.warn(`Tentativa de conexão falhou (${mode}):`, error);
+      continue;
+    }
   }
+  
+  throw new Error("Não foi possível conectar ao SQL Server com nenhuma configuração TLS");
 }
 
 export const runtime = "nodejs";
@@ -66,7 +113,8 @@ export async function POST(req: NextRequest) {
       port = 1445,
       user,
       password,
-      database
+      database,
+      useTls = true
     } = body || {};
 
     if (!user || !password || !database) {
@@ -100,7 +148,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Nova análise de segurança
-    const { pool: securityPool, mode } = await createSecurePool(server, Number(port), user, password, database);
+    const { pool: securityPool, mode } = await createSecurePool(server, Number(port), user, password, database, useTls);
     pool = securityPool;
     
     let securityAnalysis: any = {

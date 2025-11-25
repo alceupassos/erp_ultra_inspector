@@ -1,0 +1,1269 @@
+Last login: Wed Nov 12 16:49:20 on console
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd finapp_v4
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano .env.local
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano .env.local
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano .env.local
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % cd  ..
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % nano .env     
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd dashfinance
+alceualvespasssosmac@MacBook-Air-de-Alceu dashfinance % nano .env
+alceualvespasssosmac@MacBook-Air-de-Alceu dashfinance % cd ..
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd dashfinance
+alceualvespasssosmac@MacBook-Air-de-Alceu dashfinance % ls -l
+total 339504
+-rw-r--r--@  1 alceualvespasssosmac  staff      11622  9 nov 23:01 🎉_100%_SISTEMA_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       9997  9 nov 14:11 ✅_APIS_CRITICAS_IMPLEMENTADAS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      20332  9 nov 05:02 🔍_AUDITORIA_CONSISTENCIA_DADOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8036  9 nov 05:02 🔍_AUDITORIA_SENIOR_PRONTA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      13522  9 nov 05:02 🚀_AUTOMACOES_N8N_PLANEJAMENTO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11690  9 nov 14:11 🎉_BACKEND_100_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6835  9 nov 05:02 🚨_CODEX_TERMINAR_HOJE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       2941  9 nov 05:02 🔑_CONFIGURAR_SECRETS_SUPABASE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6521  9 nov 05:02 🎉_DADOS_REAIS_POPULADOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7149  9 nov 05:02 🔥_ENCERRAR_HOJE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10727  9 nov 13:47 📋_FALTA_FAZER_BACKEND.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8152  9 nov 05:02 ✨_FIM_DO_DIA.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      10706  9 nov 05:02 📊_FINAL_SUMMARY.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       4753  9 nov 14:53 🎯_FRONTEND_PROMPT_RESUMO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       4774  9 nov 21:09 🎯_GO_LIVE_FINAL_SUMMARY.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8287  9 nov 05:02 🧪_GUIA_TESTE_N8N_PRIMEIRO_WORKFLOW.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6774  9 nov 05:02 📋_HANDOFF_PARA_CODEX.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      16226  9 nov 05:02 🔥_IMPLEMENTACAO_COMPLETA_AUTOMACOES.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5598  9 nov 20:52 ✅_IMPLEMENTACOES_COMPLETAS_09NOV.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7815  9 nov 14:53 📚_INDICE_COMPLETO_IMPLEMENTACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6855  9 nov 05:02 📑_INDICE_RELATORIO_EXECUTIVO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6068  9 nov 05:02 ✅_JESSICA_KENUPP_ATIVADA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5969  9 nov 14:50 📋_LEIA_PRIMEIRO_ERP_LAZY_LOADING.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6551  9 nov 05:02 🎬_LEIA_PRIMEIRO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       6212  9 nov 05:02 🚀_LINKS_PRONTOS_GRUPO_VOLPE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       2193  9 nov 05:02 📱_MENSAGEM_JESSICA_KENUPP.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       4673  9 nov 05:02 🤖_N8N_STATUS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7814  9 nov 05:02 🆕_NOVOS_TOKENS_GRUPO_VOLPE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       3471  9 nov 21:21 📝_O_QUE_FOI_FEITO_HOJE.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      14322  9 nov 05:02 📋_PLANO_COMPLETO_RECURSOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11604  9 nov 05:02 📋_PLANO_FRONTEND_AUDITORIA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5360  9 nov 21:09 ✅_PRE_DEPLOY_CHECKLIST_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10651  9 nov 05:02 🎯_PRONTO_PARA_CODEX.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7167  9 nov 05:02 ✨_RELATORIO_EXECUTIVO_CRIADO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      18323  9 nov 05:02 📊_RELATORIO_EXECUTIVO_PRONTO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      14402  9 nov 05:02 📊_RELATORIO_PROGRESSO_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7582  9 nov 05:02 🔧_RESOLVER_PROBLEMA_WHATSAPP.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       3729  9 nov 05:02 ✅_RESULTADO_TESTES_WASENDER.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6810  9 nov 23:01 📝_RESUMO_EXECUTIVO_FINAL.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       7577  9 nov 05:02 🎉_RESUMO_EXECUTIVO_JESSICA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      14087  9 nov 21:21 📊_RESUMO_VISUAL_SESSAO_09NOV.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6034  9 nov 05:02 📱_ROTINAS_WHATSAPP_JESSICA.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff      10008  9 nov 05:02 🧪_SCRIPT_TESTE_AUTOMATIZADO.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       9201  9 nov 23:09 🎊_SISTEMA_100%_DADOS_REAIS_CONECTADOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      17338  9 nov 05:02 🎉_SISTEMA_90_PRONTO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      11570  9 nov 18:59 ✨_STATUS_FINAL_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5623  9 nov 18:48 📊_STATUS_ROADMAP_100%.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6208  9 nov 18:48 📋_TAREFAS_PENDENTES_PARA_100%.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       9048  9 nov 05:02 🧪_TESTE_TODOS_CLIENTES.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       8129  9 nov 05:02 🧪_TESTES_EXECUTADOS.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      10664  9 nov 14:11 ✅_TODAS_APIS_AVANCADAS_CRIADAS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8237  9 nov 05:02 🔑_TOKENS_GRUPO_VOLPE_RESUMO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      17773  9 nov 05:02 ✨_TUDO_CRIADO_HOJE.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       4647  9 nov 23:09 ✅_TUDO_PRONTO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       5593  9 nov 05:02 🔐_USUARIO_ADMIN_CRIADO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7377  9 nov 05:02 🤖_WHATSAPP_AI_HAIKU_RESUMO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5330 10 nov 15:33 ACOES_FINAIS.md
+drwxr-xr-x@ 11 alceualvespasssosmac  staff        352  9 nov 05:01 angra_eco
+-rw-r--r--@  1 alceualvespasssosmac  staff      25643  9 nov 05:01 angraLLM.md
+-rw-r--r--@  1 alceualvespasssosmac  staff        403  9 nov 05:15 angrasistema.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff         12 10 nov 16:43 app.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       7756  9 nov 05:02 ARQUIVOS_GERADOS_HOJE.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       6790  9 nov 05:02 ATIVAR_TOKENS_GRUPO_VOLPE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1705  9 nov 05:02 ATIVAR_WORKFLOWS_MANUAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10314 12 nov 05:07 AUDITORIA_INTEGRACAO_OMIE_COMPLETA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10316 12 nov 05:07 AUDITORIA_OMIE_AMOSTRA_DE_DADOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      25563 12 nov 05:07 AUDITORIA_OMIE_VISUAL.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      30160  9 nov 05:02 AUDITORIA_SENIOR_OCR_IA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       9245  9 nov 19:11 AUTH_IMPLEMENTATION_GUIDE.md
+drwxr-xr-x@ 19 alceualvespasssosmac  staff        608  9 nov 05:01 authset
+drwxr-xr-x@  7 alceualvespasssosmac  staff        224  9 nov 05:01 authset-api
+-rw-r--r--@  1 alceualvespasssosmac  staff      21827  9 nov 05:02 AUTOMACOES_COMPLETAS_WHATSAPP_N8N.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8328  9 nov 05:02 AUTOMACOES_ESTRATEGICAS_BPO.md
+drwxr-xr-x@ 21 alceualvespasssosmac  staff        672  9 nov 05:02 automation
+drwxr-xr-x@  6 alceualvespasssosmac  staff        192  9 nov 05:01 back
+-rw-r--r--@  1 alceualvespasssosmac  staff       4952  9 nov 05:02 BILLING_SYSTEM.md
+drwxr-xr-x@  5 alceualvespasssosmac  staff        160  9 nov 05:02 captura de telas para dashfin
+-rw-r--r--@  1 alceualvespasssosmac  staff        925 10 nov 13:19 CHANGELOG.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       3966 10 nov 15:32 CHATGPT5_ATIVO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       2048 10 nov 15:38 CHAVE_F360_INCORRETA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10235  9 nov 05:22 CHECKLIST_DEPLOY_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5701  9 nov 17:01 CHECKLIST_PRE_DEPLOY.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      19190 11 nov 19:16 CHECKLIST_VALIDACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1483  9 nov 05:02 CLIENTES_F360_com_TOKEN.csv
+-rw-r--r--@  1 alceualvespasssosmac  staff      11713  9 nov 05:01 CLIENTES_F360_com_TOKEN.xlsx
+-rw-r--r--@  1 alceualvespasssosmac  staff       6580  9 nov 05:02 CLIENTES_TOKENS_ONBOARDING_CRIADOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      12743  9 nov 05:02 CODEX_IMPLEMENTAR_RELATORIO_EXECUTIVO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6498 10 nov 15:16 COMANDOS_PROXIMA_SESSAO.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       6869  9 nov 05:38 COMANDOS_RAPIDOS_TESTE.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       9145  9 nov 16:08 COMECE_AQUI_FASE1.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5914  9 nov 15:21 COMECE_AQUI_PARALELO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5595  9 nov 05:01 COMO_GERAR_PDF.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8253 10 nov 07:32 CONCLUSAO_SESSAO_10NOV.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5824  9 nov 05:02 CONFIGURAR_WEBHOOK_WASENDER.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4680  9 nov 05:02 CORRIGIR_CERTIFICADOS.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       3622 10 nov 15:35 CORRIGIR_ERRO_SQL.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1178  9 nov 06:02 CREATE_USER_SUPABASE.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2591  9 nov 05:02 CRIAR_ACESSO_SSH_PARA_IA.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2084  9 nov 05:02 CRIAR_CHAVE_SSH.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       2108  9 nov 05:02 CRIAR_ENV_LOCAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       9269 11 nov 19:04 DADOS_REAIS_E_SIMULADORES.md
+drwxr-xr-x@  4 alceualvespasssosmac  staff        128  7 nov 18:49 dashfin
+-rw-r--r--@  1 alceualvespasssosmac  staff  159157719 10 nov 15:42 dashfinance-frontend.tar.gz
+-rw-r--r--@  1 alceualvespasssosmac  staff       5704  9 nov 19:33 DATABASE_POPULATION_REPORT.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7906 11 nov 17:06 db2.txt
+-rwxr-xr-x@  1 alceualvespasssosmac  staff      11616  9 nov 05:02 DEPLOY_AUTOMATICO_COMPLETO.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4373  9 nov 05:02 DEPLOY_COMPLETO.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       8224  9 nov 05:22 DEPLOY_CONCLUIDO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11611  9 nov 18:48 DEPLOY_EDGE_FUNCTIONS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       3631 10 nov 15:43 DEPLOY_FINAL_SEGURO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8453  9 nov 05:04 DEPLOY_INSTRUCTIONS.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       6390  9 nov 05:04 DEPLOY_MANUAL.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       1748  9 nov 05:02 DEPLOY_SERVIDOR_147.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       5005  9 nov 05:02 DEPLOY_SIMPLES_FINAL.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       3471 10 nov 15:40 DEPLOY_VPS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       5241  9 nov 18:48 deploy-all-functions.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       6586  9 nov 05:08 deploy-complete.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       7180  9 nov 07:54 deploy-frontend-vps.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3966  9 nov 05:02 deploy-n8n-servidor147.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff      10648  9 nov 05:02 deploy-nginx.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4780  9 nov 07:54 deploy-remote-build.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       5241 10 nov 15:43 deploy-vps-seguro.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       8790  9 nov 05:02 DEPLOYMENT_SUMMARY.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff         50  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_CLEVEL_DOC.docx
+-rw-r--r--@  1 alceualvespasssosmac  staff      44764  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_CLEVEL_NEW.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      15171  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_CLEVEL_v2.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      45477  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_CLEVEL.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      12632  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_COMPLETO_V0.92.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      18997  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_COMPLETO.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      42610  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_FINAL.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      12675  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO_MODERNO.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      32128  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO.docx
+-rw-r--r--@  1 alceualvespasssosmac  staff      27607  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      13093  9 nov 05:01 DESCRITIVO_SISTEMA_EXECUTIVO.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4662  9 nov 05:02 DIAGNOSTICO_COMPLETO.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2992  9 nov 05:02 DIAGNOSTICO_E_CORRIGE.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       6164 12 nov 02:43 DIAGNOSTICO_F360_COMPLETO - cópia.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6164 12 nov 02:43 DIAGNOSTICO_F360_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       2264  9 nov 16:22 DIAGNOSTICO_PROBLEMAS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1422  9 nov 05:02 docker-compose.yml
+drwxr-xr-x@ 81 alceualvespasssosmac  staff       2592 12 nov 06:01 docs
+-rw-r--r--@  1 alceualvespasssosmac  staff      10037  9 nov 19:38 EDGE_FUNCTIONS_FIX_REPORT.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       9322  9 nov 05:02 ENTREGA_FINAL_HOJE.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2190  9 nov 05:02 ENVIAR_MENSAGEM_JESSICA.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       8659  9 nov 05:02 EXECUCAO_COMPLETA_TODAS_FASES.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6100 10 nov 15:16 EXECUCAO_PLANO_COMPLETO.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        375  9 nov 05:02 EXECUTAR_AGORA.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4959  9 nov 05:02 EXECUTE_NO_SERVIDOR.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      38442  9 nov 05:02 f360_token_scraper.log
+-rw-r--r--@  1 alceualvespasssosmac  staff       1904  9 nov 17:21 falta_2.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5869  9 nov 05:02 FASE_1_CRIPTOGRAFIA_COMPLETA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8486  9 nov 05:02 FASE_4_AUTOMACAO_COMPLETA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10543  9 nov 16:07 FASE1_COMPLETA_SUMARIO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       8503  9 nov 16:08 FASE1_RESUMO_RAPIDO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10424  9 nov 16:44 FASE2_RESUMO_COMPLETO.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2070  9 nov 06:22 FINAL_FIX_LOGIN.sh
+drwxr-xr-x@ 77 alceualvespasssosmac  staff       2464  9 nov 05:02 finance-oraculo-backend
+drwxr-xr-x@ 36 alceualvespasssosmac  staff       1152 10 nov 09:47 finance-oraculo-frontend
+-rw-r--r--@  1 alceualvespasssosmac  staff       1395  9 nov 16:23 FIX_CNPJ_VAZIOS.sql
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1245  9 nov 05:41 FIX_INSTALACAO.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      16197  9 nov 05:02 FRONTEND_CHANGES_REQUIRED.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       3956  9 nov 05:01 FRONTEND.TXT
+-rw-r--r--@  1 alceualvespasssosmac  staff       3583  9 nov 05:01 generate-pdf.js
+-rw-r--r--@  1 alceualvespasssosmac  staff       3630  9 nov 05:01 generate-pdf.py
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3833  9 nov 05:02 GERAR_CERTIFICADOS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3671  9 nov 05:02 GERAR_CHAVE_SSH_SERVIDOR.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2055  9 nov 05:01 gerar-pdf.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       2410  9 nov 19:45 GET_JWT_TOKEN.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       7293  9 nov 14:28 GUIA_DEPLOY_RECONCILIACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6247  9 nov 05:02 GUIA_RAPIDO_CONFIGURACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6920  9 nov 14:50 GUIA_TESTE_ERP_LAZY_LOADING.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11105  9 nov 05:38 GUIA_TESTE_PRATICO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      21558  9 nov 05:01 IFINANCE_VARIAVEIS_AMBIENTE_TOKENS_MODERNO.docx
+-rw-r--r--@  1 alceualvespasssosmac  staff      10170  9 nov 05:02 IMPLEMENTACAO_COMPLETA_ERP_SYNC.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      18794  9 nov 14:28 IMPLEMENTACAO_COMPLETA_RECONCILIACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8098  9 nov 15:20 IMPLEMENTACAO_CONCLUIDA_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8720  9 nov 14:50 IMPLEMENTACAO_ERP_LAZY_LOADING.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3993  9 nov 05:02 IMPORTAR_WORKFLOWS_N8N.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2835  9 nov 05:02 IMPORTER_WORKFLOWS.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       1478 11 nov 23:21 in.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      19742 11 nov 19:18 INDEX_INTEGRACAO_F360.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10260  9 nov 05:02 INDEX_NGINX.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5229 12 nov 05:07 INDICE_AUDITORIA_OMIE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10136  9 nov 06:05 INDICE_MASTER_PARA_CODEX.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8662  9 nov 14:28 INDICE_SISTEMA_RECONCILIACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6302  9 nov 05:39 INSTRUCOES_FINAIS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       3872  9 nov 05:02 INTEGRATIONS_CONFIG.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        753  9 nov 19:07 invoke_seed.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      18712 10 nov 16:52 landing_page_i_finance_dash_finance_html_v_1.html
+-rw-r--r--@  1 alceualvespasssosmac  staff       8850 12 nov 05:07 LEIA_ME_PRIMEIRO_AUDITORIA_OMIE.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      17799 11 nov 19:20 LEIA-ME-PRIMEIRO.md
+drwxr-xr-x@  2 alceualvespasssosmac  staff         64  6 nov 20:34 lib
+-rw-r--r--@  1 alceualvespasssosmac  staff       6529  9 nov 05:02 LINKS_WHATSAPP_CLIENTES.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       8352  9 nov 19:17 LOCAL_SMOKE_TEST.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       5714  9 nov 19:46 LOGIN_AND_TEST.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       1796  9 nov 23:23 MCP_SETUP.md
+drwxr-xr-x@  6 alceualvespasssosmac  staff        192  9 nov 15:48 mcp-servers
+-rw-r--r--@  1 alceualvespasssosmac  staff       2034  9 nov 23:26 MCPRUFF_SETUP.md
+-rw-r--r--@  1 alceualvespasssosmac  staff     142338  1 nov 21:31 modelo1.webp
+-rw-r--r--@  1 alceualvespasssosmac  staff       4362  9 nov 05:02 N8N_CRIAR_WORKFLOWS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      12452  9 nov 05:02 N8N_IMPROVEMENTS_PLAN.md
+drwxr-xr-x@ 10 alceualvespasssosmac  staff        320  9 nov 05:32 n8n-workflows
+-rw-r--r--@  1 alceualvespasssosmac  staff      12271  9 nov 05:02 NGINX_FILES_SUMMARY.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       7573  9 nov 05:02 NGINX_LETSENCRYPT_SETUP.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       4712  9 nov 05:02 NGINX_QUICK_START.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       7809  9 nov 05:02 NGINX_RESUMO_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6711  9 nov 05:02 NGINX_SETUP_GUIDE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11417  9 nov 05:02 NGINX_VALIDATION_TESTS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11052  9 nov 05:02 nginx-letsencrypt.conf
+-rw-r--r--@  1 alceualvespasssosmac  staff       7366  9 nov 05:02 nginx.conf
+-rw-r--r--@  1 alceualvespasssosmac  staff      16936 12 nov 01:07 omie-api-doc.md
+-rw-r--r--@  1 alceualvespasssosmac  staff        754 12 nov 01:16 omie.db
+-rw-r--r--@  1 alceualvespasssosmac  staff        530 12 nov 05:07 Omie2.db.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      15629  9 nov 05:27 openapi.json
+-rw-r--r--@  1 alceualvespasssosmac  staff       2922 10 nov 15:29 ORACLE_CHATGPT5_CONFIGURADO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1806 11 nov 23:21 out.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10377 12 nov 02:29 PENDENCIAS_RESOLVIDAS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10072  9 nov 18:38 PLAN_EXECUTION_REPORT.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8141  9 nov 05:02 PLANO_MELHORIAS_PROCESSOS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1656  9 nov 20:39 POSTGREST_CACHE_ISSUE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       4723  9 nov 05:02 PRICING_YAMPI_SYSTEM.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6059  9 nov 19:33 PROBLEMA_DIAGNOSTICADO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      34246  9 nov 05:02 PROMPT_CODEX_FRONTEND_CONCILIACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      22487  9 nov 17:21 PROMPT_CODEX_FRONTEND_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      17640  9 nov 05:02 PROMPT_CODEX_IMPLEMENTAR_FRONTEND.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      71132  9 nov 05:01 PROMPT_COMPLETO_FRONTEND_PARA_CODEX.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      16114  9 nov 14:53 PROMPT_IMPLEMENTAR_FRONTEND_COMPLETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff        926  9 nov 05:15 promptscrap.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       9574  9 nov 05:22 QUICK_START_FRONTEND.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5358  9 nov 19:18 QUICK_START_LOCAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5931  9 nov 07:47 README_DEPLOY_VPS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8601  9 nov 05:22 README_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8419  9 nov 05:02 README_NGINX_PT_BR.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       2648  9 nov 05:02 README_RAPIDO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6426  9 nov 19:11 README.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1063  9 nov 19:38 REDEPLOY_ALL_FIXED_FUNCTIONS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3019  9 nov 19:56 REDEPLOY_AND_TEST_EMPRESAS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1673  9 nov 20:31 REDEPLOY_AND_TEST_V2_2.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1395  9 nov 20:28 REDEPLOY_EMPRESAS_V2_1.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       1240  9 nov 20:18 REDEPLOY_EMPRESAS_V3.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff        891  9 nov 19:33 REDEPLOY_FIXED_FUNCTION.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1061  9 nov 20:34 REDEPLOY_ONBOARDING_TOKENS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3402  9 nov 05:02 register_wasender_webhook.py
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        634  9 nov 05:02 REGISTRAR_WEBHOOK.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      22021  9 nov 05:02 RELATORIO_EXECUTIVO_CLIENTE_BPO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1698  9 nov 19:48 RESET_PASSWORD_ADMIN.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       1843  9 nov 19:45 RESET_USER_PASSWORD.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       4839  9 nov 07:13 RESOLVER_AUTH_SUPABASE.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2554  9 nov 05:02 restart-frontend.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       5888  9 nov 19:04 RESULTADO_SEED_EXECUCAO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       4928  9 nov 05:02 RESULTADO_TESTES_N8N.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11632 12 nov 05:07 RESUMO_AUDITORIA_OMIE.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      11400  9 nov 05:02 RESUMO_CRIADO_HOJE.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       5860  9 nov 05:02 RESUMO_EXECUCAO_HOJE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10058  9 nov 05:22 RESUMO_EXECUTIVO_DEPLOY.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      19961 11 nov 19:14 RESUMO_EXECUTIVO_INTEGRACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      12995  9 nov 16:24 RESUMO_FINAL_BACKEND_09-11-2025.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      13375 10 nov 15:34 RESUMO_FINAL_COMPLETO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       7789  9 nov 14:50 RESUMO_FINAL_ERP_LAZY_LOADING.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10818  9 nov 05:02 RESUMO_FINAL_IMPLEMENTACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5902  9 nov 05:02 RESUMO_FINAL_PARA_USUARIO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10706  9 nov 14:28 RESUMO_IMPLEMENTACAO_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       5191 10 nov 15:14 RESUMO_SESSAO_11_NOV.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      10995 10 nov 15:27 RESUMO_VISUAL_FINAL.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      17360  9 nov 05:02 RESUMO_VISUAL.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      25735 11 nov 19:09 ROTEIRO_INTEGRACAO_F360.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3519  9 nov 05:38 RUN_FRONTEND_TEST.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3453  9 nov 19:17 RUN_FRONTEND.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        267  9 nov 05:02 RUN_SCRAPER.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3724  9 nov 18:24 run-all-tests.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff   10886413  9 nov 05:01 screencapture-file-Users-alceualvespasssosmac-dashfinance-VARIAVEIS-AMBIENTE-TOKENS-MODERNO-html-2025-11-07-14_01_02.png
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1698  9 nov 05:02 SCRIPT_FINAL_SERVIDOR.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff      14141  9 nov 05:02 SCRIPT_PARA_SERVIDOR.sh
+drwxr-xr-x@ 23 alceualvespasssosmac  staff        736 12 nov 00:35 scripts
+-rw-r--r--@  1 alceualvespasssosmac  staff       4880  9 nov 17:01 SEED_DADOS_TESTE.sql
+-rw-r--r--@  1 alceualvespasssosmac  staff      10263  9 nov 05:02 SEED_TUDO_DE_UMA_VEZ.sql
+-rw-r--r--@  1 alceualvespasssosmac  staff       6782 10 nov 15:26 SESSAO_COMPLETA_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11965  9 nov 07:22 SESSAO_PERSISTENCIA_CORRIGIDA.md
+drwxr-xr-x@  3 alceualvespasssosmac  staff         96  9 nov 05:01 setauto
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1468  9 nov 05:45 SETUP_ENV.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      13014  9 nov 05:02 SETUP_LOGIN_TESTES.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3887  9 nov 05:02 SETUP_N8N_SERVIDOR.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       9688  9 nov 05:02 SETUP_NGINX_SISTEMA.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       8167  9 nov 05:02 SETUP_RAPIDO_ALERTAS.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1739  9 nov 05:02 SETUP_VENV_FIX.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1719  9 nov 05:02 SETUP_VENV.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4961  9 nov 05:28 setup-apidog.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1505  9 nov 05:02 setup-env-local.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2685  9 nov 05:33 setup-n8n-workflows.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       7031  9 nov 18:48 setup-server-production.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      13113  9 nov 05:16 sisokd.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      11098  9 nov 05:02 SISTEMA_ALERTAS_IMPLEMENTADO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      39900  9 nov 05:02 SISTEMA_ALERTAS_INTELIGENTES.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11742  9 nov 05:02 SISTEMA_CONCILIACAO_RESUMO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      22881  9 nov 05:02 SISTEMA_ONBOARDING_WHATSAPP.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      17627  9 nov 21:05 SMOKE_TEST_RESULT.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       5352  9 nov 20:55 SMOKE_TEST_VISUAL_GUIDE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1774  9 nov 05:41 SOLUCAO_ERRO_SUPABASE.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       9842 10 nov 15:10 solucao.md
+-rw-------@  1 alceualvespasssosmac  staff        411  9 nov 05:02 ssh_key.txt
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       2861  9 nov 05:39 START_FRONTEND_AGORA.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      13782  9 nov 16:11 STATUS_BACKEND_FINAL.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       8488 10 nov 15:17 STATUS_FINAL_COMPLETO.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       9817  9 nov 05:35 STATUS_FINAL_IMPLEMENTACAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       6108  9 nov 21:03 STATUS_FINAL_PROJETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8149  9 nov 05:22 STATUS_FINAL.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       7602  9 nov 18:48 STATUS_PROJETO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      61022  9 nov 05:01 STATUS_VARIAVEIS_AMBIENTE.html
+-rw-r--r--@  1 alceualvespasssosmac  staff        691  9 nov 05:17 sua.txt
+drwxr-xr-x@  3 alceualvespasssosmac  staff         96  9 nov 05:01 subprompts
+drwxr-xr-x@  3 alceualvespasssosmac  staff         96 12 nov 00:25 supabase
+-rw-r--r--@  1 alceualvespasssosmac  staff        735  9 nov 05:16 supadata.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      14474 10 nov 00:17 superdetalhe.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      26752  9 nov 05:22 TAREFAS_FRONTEND_FINAL.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       9632  9 nov 05:02 TAREFAS_FRONTEND_RESTANTES.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       8472 12 nov 02:31 TAREFAS_ORDEM_EXECUCAO.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      11492  9 nov 05:24 TAREFAS_PARALELAS_AGORA.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      15796  9 nov 15:06 TASK_APIS_CRITICAS_FINAIS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff      24678  9 nov 15:13 TASK_BACKEND_FOLLOWUP.md
+drwxr-xr-x  13 alceualvespasssosmac  staff        416 10 nov 15:49 telas
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3445  9 nov 20:32 TEST_ALL_FIXED_FUNCTIONS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3520  9 nov 14:11 TEST_APIS_CRITICAS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       4912  9 nov 19:21 TEST_APIS_NO_JWT.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       7455  9 nov 19:18 TEST_APIS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1045  9 nov 20:22 TEST_DB_DIAGNOSTICS_V2.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1009  9 nov 20:18 TEST_DB_DIAGNOSTICS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1662  9 nov 20:18 TEST_EMPRESAS_DIRECT.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       3407  9 nov 19:56 TEST_EMPRESAS_LIST.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1695  9 nov 20:47 TEST_ONBOARDING_FINAL.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        221  9 nov 05:02 TEST_ONE.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       4521  9 nov 19:16 TEST_RESULTS.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff      11488  9 nov 18:42 test-all-edge-functions.sh
+drwxr-xr-x@  3 alceualvespasssosmac  staff         96  9 nov 05:02 test-results
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       1912 10 nov 14:51 test-sync-fixed.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        812 10 nov 14:47 test-sync.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       8051  9 nov 05:35 TESTE_FRONTEND_COMPLETO.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       5754  9 nov 05:02 TESTE_WASENDER_API.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       9487 10 nov 15:31 TESTES_EXECUTADOS.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff      10403  9 nov 05:16 tests.txt
+drwxr-xr-x@  3 alceualvespasssosmac  staff         96  9 nov 17:54 testsprite_tests
+-rw-r--r--@  1 alceualvespasssosmac  staff       7392  9 nov 05:02 TOKENS_GRUPO_VOLPE_WHATSAPP.md
+drwxr-xr-x@  7 alceualvespasssosmac  staff        224  7 nov 20:28 torre
+-rw-r--r--@  1 alceualvespasssosmac  staff       4464  9 nov 05:02 TUDO_PRONTO_SERVIDOR147.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        553  9 nov 06:17 UPDATE_ENV_CORRECT.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        971  9 nov 05:54 UPDATE_ENV_CREDENTIALS.sh
+-rwxr-xr-x@  1 alceualvespasssosmac  staff        441  9 nov 06:13 UPDATE_ENV_NEW.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff       5209  9 nov 05:02 USAGE_SENTIMENT_RAG_SYSTEM.md
+-rwxr-xr-x@  1 alceualvespasssosmac  staff       3924  9 nov 05:35 validate-frontend-routes.sh
+-rw-r--r--@  1 alceualvespasssosmac  staff      14083  9 nov 05:01 VARIAVEIS_AMBIENTE_TOKENS_MODERNO.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      28639  9 nov 05:01 VARIAVEIS_AMBIENTE_TOKENS.docx
+-rw-r--r--@  1 alceualvespasssosmac  staff      18189  9 nov 05:01 VARIAVEIS_AMBIENTE_TOKENS.html
+-rw-r--r--@  1 alceualvespasssosmac  staff      11753  9 nov 05:01 VARIAVEIS_AMBIENTE_TOKENS.md
+drwxr-xr-x   8 alceualvespasssosmac  staff        256  9 nov 07:51 venv
+-rw-r--r--@  1 alceualvespasssosmac  staff      21458  9 nov 14:50 VISUAL_SUMMARY_LAZY_LOADING.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       9033  9 nov 05:01 WASENDER_DEPLOY_SUCCESS.md
+-rw-r--r--@  1 alceualvespasssosmac  staff       1717  9 nov 05:16 webhootest.txt
+-rw-r--r--@  1 alceualvespasssosmac  staff       1140  9 nov 05:02 whatsapp preventing.md
+alceualvespasssosmac@MacBook-Air-de-Alceu dashfinance % cd torre
+alceualvespasssosmac@MacBook-Air-de-Alceu torre % nano .env
+alceualvespasssosmac@MacBook-Air-de-Alceu torre % ls -l
+total 0
+drwxr-xr-x@ 33 alceualvespasssosmac  staff  1056  6 nov 08:23 finance-oraculo-backend
+drwxr-xr-x@ 20 alceualvespasssosmac  staff   640  6 nov 08:55 finance-oraculo-frontend
+alceualvespasssosmac@MacBook-Air-de-Alceu torre % cd finance-oraculo-backend
+alceualvespasssosmac@MacBook-Air-de-Alceu finance-oraculo-backend % nano .env
+alceualvespasssosmac@MacBook-Air-de-Alceu finance-oraculo-backend % cd ~/.ssh  
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ls -l
+total 128
+-rw-r--r--@ 1 alceualvespasssosmac  staff   226  2 nov 04:06 config
+-rw-------@ 1 alceualvespasssosmac  staff   399  2 nov 04:04 contabo_vps
+-rw-r--r--@ 1 alceualvespasssosmac  staff    93  2 nov 04:04 contabo_vps.pub
+-rw-------@ 1 alceualvespasssosmac  staff   411  8 nov 18:37 ia_deploy_key
+-rw-------@ 1 alceualvespasssosmac  staff   411  6 nov 11:20 id_ed25519
+-rw-------  1 alceualvespasssosmac  staff   411 25 out 07:23 id_ed25519_angra
+-rw-r--r--  1 alceualvespasssosmac  staff   100 25 out 07:23 id_ed25519_angra.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:07 id_ed25519_deploy.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  6 nov 11:20 id_ed25519.pub
+-rw-------  1 alceualvespasssosmac  staff   121  6 nov 11:44 id_ed25519.pub.save
+-rw-------@ 1 alceualvespasssosmac  staff  3450  7 nov 19:40 known_hosts
+-rw-------@ 1 alceualvespasssosmac  staff  2714  7 nov 19:36 known_hosts.old
+-rw-------@ 1 alceualvespasssosmac  staff   411  2 nov 04:06 vps_contabo
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:06 vps_contabo.pub
+-rw-------  1 alceualvespasssosmac  staff  3422 11 nov 21:37 vps_key
+-rw-r--r--  1 alceualvespasssosmac  staff   773 11 nov 21:37 vps_key.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd known_hosts  
+cd: not a directory: known_hosts
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano knonw_hosts
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano known_hosts
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cat ~/.ssh/id_rsa.pub
+
+cat: /Users/alceualvespasssosmac/.ssh/id_rsa.pub: No such file or directory
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd ~/.ssh               
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ls -l
+total 128
+-rw-r--r--@ 1 alceualvespasssosmac  staff   226  2 nov 04:06 config
+-rw-------@ 1 alceualvespasssosmac  staff   399  2 nov 04:04 contabo_vps
+-rw-r--r--@ 1 alceualvespasssosmac  staff    93  2 nov 04:04 contabo_vps.pub
+-rw-------@ 1 alceualvespasssosmac  staff   411  8 nov 18:37 ia_deploy_key
+-rw-------@ 1 alceualvespasssosmac  staff   411  6 nov 11:20 id_ed25519
+-rw-------  1 alceualvespasssosmac  staff   411 25 out 07:23 id_ed25519_angra
+-rw-r--r--  1 alceualvespasssosmac  staff   100 25 out 07:23 id_ed25519_angra.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:07 id_ed25519_deploy.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  6 nov 11:20 id_ed25519.pub
+-rw-------  1 alceualvespasssosmac  staff   121  6 nov 11:44 id_ed25519.pub.save
+-rw-------@ 1 alceualvespasssosmac  staff  3450  7 nov 19:40 known_hosts
+-rw-------@ 1 alceualvespasssosmac  staff  2714  7 nov 19:36 known_hosts.old
+-rw-------@ 1 alceualvespasssosmac  staff   411  2 nov 04:06 vps_contabo
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:06 vps_contabo.pub
+-rw-------  1 alceualvespasssosmac  staff  3422 11 nov 21:37 vps_key
+-rw-r--r--  1 alceualvespasssosmac  staff   773 11 nov 21:37 vps_key.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano vps_key.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % >....                                                                                                                      
+                  
+        {/* Sparkline */}                                                                                                      
+        {sparklineData && (                                                   
+          <div className="flex items-end gap-1 h-12 mt-4">                    
+            {sparklineData.map((value, index) => {
+              const maxValue = Math.max(...sparklineData);
+              const heightPercent = (value / maxValue) * 100;                      
+              return (
+                <motion.div                                                                
+                  key={index}       
+                  initial={{ height: 0 }}                                                                   
+                  animate={{ height: `${heightPercent}%` }}                                                 
+                  transition={{ delay: delay + 0.5 + index * 0.02, duration: 0.3 }}
+                  className={`flex-1 bg-gradient-to-t ${colors.bg} rounded-sm opacity-70 hover:opacity-100 transition-opacity`}
+                />         
+              );                                                              
+            })}          
+          </div>                      
+        )}                                         
+                
+        {/* Progress Bar */}                                                               
+        {progress !== undefined && (
+          <div className="mt-4">                                                                                                                                      <....
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ls -l 
+total 128
+-rw-r--r--@ 1 alceualvespasssosmac  staff   226  2 nov 04:06 config
+-rw-------@ 1 alceualvespasssosmac  staff   399  2 nov 04:04 contabo_vps
+-rw-r--r--@ 1 alceualvespasssosmac  staff    93  2 nov 04:04 contabo_vps.pub
+-rw-------@ 1 alceualvespasssosmac  staff   411  8 nov 18:37 ia_deploy_key
+-rw-------@ 1 alceualvespasssosmac  staff   411  6 nov 11:20 id_ed25519
+-rw-------  1 alceualvespasssosmac  staff   411 25 out 07:23 id_ed25519_angra
+-rw-r--r--  1 alceualvespasssosmac  staff   100 25 out 07:23 id_ed25519_angra.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:07 id_ed25519_deploy.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  6 nov 11:20 id_ed25519.pub
+-rw-------  1 alceualvespasssosmac  staff   121  6 nov 11:44 id_ed25519.pub.save
+-rw-------@ 1 alceualvespasssosmac  staff  3450  7 nov 19:40 known_hosts
+-rw-------@ 1 alceualvespasssosmac  staff  2714  7 nov 19:36 known_hosts.old
+-rw-------@ 1 alceualvespasssosmac  staff   411  2 nov 04:06 vps_contabo
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:06 vps_contabo.pub
+-rw-------  1 alceualvespasssosmac  staff  3422 11 nov 21:37 vps_key
+-rw-r--r--  1 alceualvespasssosmac  staff   773 11 nov 21:37 vps_key.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano known_hosts
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd ..
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd finapp.v4
+cd: no such file or directory: finapp.v4
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % export DEPLOY_HOST="147.93.183.55"
+export DEPLOY_USER="root"
+export DEPLOY_PATH="/var/www/www.ifin.app.br"
+npm run deploy
+npm error Missing script: "deploy"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /Users/alceualvespasssosmac/.npm/_logs/2025-11-13T03_38_23_808Z-debug-0.log
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ %                                   
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd finapp_v4
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % export DEPLOY_HOST="147.93.183.55"
+export DEPLOY_USER="root"
+export DEPLOY_PATH="/var/www/www.ifin.app.br"
+npm run deploy
+
+> finapp-dashboard@0.2.0 deploy
+> bash scripts/deploy.sh
+
+
+> finapp-dashboard@0.2.0 build
+> tsc -b && vite build
+
+vite v5.4.21 building for production...
+✓ 4389 modules transformed.
+dist/index.html                     0.42 kB │ gzip:   0.30 kB
+dist/assets/index-2ND68TIe.css     41.55 kB │ gzip:   7.32 kB
+dist/assets/index-BY_DS7vh.js   1,852.14 kB │ gzip: 537.02 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.00s
+nginx.service is not active, cannot reload.
+nginx: [error] open() "/run/nginx.pid" failed (2: No such file or directory)
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano known_hosts                  
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % cd ~/.ssh                         
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano known_hosts                  
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % gpg --full-generate-key
+
+zsh: command not found: gpg
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % brew install gnupg
+
+==> Auto-updating Homebrew...
+Adjust how often this is run with `$HOMEBREW_AUTO_UPDATE_SECS` or disable with
+`$HOMEBREW_NO_AUTO_UPDATE=1`. Hide these hints with `$HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Auto-updated Homebrew!
+Updated 2 taps (supabase/tap and homebrew/cask).
+==> New Casks
+ape: Software for DNA sequence analysis and annotation
+dotnet-sdk@9: Developer platform
+okta-verify: Identity verification provider
+
+You have 18 outdated formulae and 1 outdated cask installed.
+
+==> Fetching downloads for: gnupg
+✔︎ Bottle Manifest gnupg (2.4.8)                                                                                                                [Downloaded   42.6KB/ 42.6KB]
+✔︎ Bottle Manifest gmp (6.3.0)                                                                                                                  [Downloaded   13.3KB/ 13.3KB]
+✔︎ Bottle Manifest libidn2 (2.3.8)                                                                                                              [Downloaded   12.8KB/ 12.8KB]
+✔︎ Bottle libidn2 (2.3.8)                                                                                                                       [Downloaded  309.8KB/309.8KB]
+✔︎ Bottle Manifest libtasn1 (4.20.0)                                                                                                            [Downloaded   10.1KB/ 10.1KB]
+✔︎ Bottle Manifest nettle (3.10.2)                                                                                                              [Downloaded   11.9KB/ 11.9KB]
+✔︎ Bottle Manifest p11-kit (0.25.10)                                                                                                            [Downloaded    9.9KB/  9.9KB]
+✔︎ Bottle Manifest libevent (2.1.12_1)                                                                                                          [Downloaded   17.0KB/ 17.0KB]
+✔︎ Bottle Manifest libnghttp2 (1.68.0)                                                                                                          [Downloaded    7.3KB/  7.3KB]
+✔︎ Bottle Manifest unbound (1.24.1)                                                                                                             [Downloaded   14.0KB/ 14.0KB]
+✔︎ Bottle Manifest libgpg-error (1.56)                                                                                                          [Downloaded    9.3KB/  9.3KB]
+✔︎ Bottle libtasn1 (4.20.0)                                                                                                                     [Downloaded  166.8KB/166.8KB]
+✔︎ Bottle Manifest gnutls (3.8.10)                                                                                                              [Downloaded   25.4KB/ 25.4KB]
+✔︎ Bottle Manifest libassuan (3.0.2)                                                                                                            [Downloaded   12.9KB/ 12.9KB]
+✔︎ Bottle gmp (6.3.0)                                                                                                                           [Downloaded    1.0MB/  1.0MB]
+✔︎ Bottle nettle (3.10.2)                                                                                                                       [Downloaded  987.6KB/987.6KB]
+✔︎ Bottle p11-kit (0.25.10)                                                                                                                     [Downloaded  938.5KB/938.5KB]
+✔︎ Bottle libevent (2.1.12_1)                                                                                                                   [Downloaded  738.7KB/738.7KB]
+✔︎ Bottle Manifest libgcrypt (1.11.2)                                                                                                           [Downloaded   13.5KB/ 13.5KB]
+✔︎ Bottle libnghttp2 (1.68.0)                                                                                                                   [Downloaded  220.7KB/220.7KB]
+✔︎ Bottle Manifest libksba (1.6.7)                                                                                                              [Downloaded   14.0KB/ 14.0KB]
+✔︎ Bottle unbound (1.24.1)                                                                                                                      [Downloaded    3.0MB/  3.0MB]
+✔︎ Bottle libassuan (3.0.2)                                                                                                                     [Downloaded  175.5KB/175.5KB]
+✔︎ Bottle Manifest libusb (1.0.29)                                                                                                              [Downloaded   16.2KB/ 16.2KB]
+✔︎ Bottle Manifest npth (1.8)                                                                                                                   [Downloaded    9.3KB/  9.3KB]
+✔︎ Bottle Manifest pinentry (1.3.2)                                                                                                             [Downloaded   20.0KB/ 20.0KB]
+✔︎ Bottle libgpg-error (1.56)                                                                                                                   [Downloaded  564.2KB/564.2KB]
+✔︎ Bottle libgcrypt (1.11.2)                                                                                                                    [Downloaded    1.5MB/  1.5MB]
+✔︎ Bottle libksba (1.6.7)                                                                                                                       [Downloaded  177.1KB/177.1KB]
+✔︎ Bottle npth (1.8)                                                                                                                            [Downloaded   39.5KB/ 39.5KB]
+✔︎ Bottle libusb (1.0.29)                                                                                                                       [Downloaded  192.7KB/192.7KB]
+✔︎ Bottle pinentry (1.3.2)                                                                                                                      [Downloaded  132.4KB/132.4KB]
+✔︎ Bottle gnupg (2.4.8)                                                                                                                         [Downloaded    5.4MB/  5.4MB]
+✔︎ Bottle gnutls (3.8.10)                                                                                                                       [Downloaded    3.2MB/  3.2MB]
+==> Installing dependencies for gnupg: gmp, libidn2, libtasn1, nettle, p11-kit, libevent, libnghttp2, unbound, gnutls, libgpg-error, libassuan, libgcrypt, libksba, libusb, npth and pinentry
+==> Installing gnupg dependency: gmp
+==> Pouring gmp--6.3.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gmp/6.3.0: 22 files, 3.4MB
+==> Installing gnupg dependency: libidn2
+==> Pouring libidn2--2.3.8.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libidn2/2.3.8: 80 files, 946.1KB
+==> Installing gnupg dependency: libtasn1
+==> Pouring libtasn1--4.20.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libtasn1/4.20.0: 63 files, 704.1KB
+==> Installing gnupg dependency: nettle
+==> Pouring nettle--3.10.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/nettle/3.10.2: 96 files, 2.9MB
+==> Installing gnupg dependency: p11-kit
+==> Pouring p11-kit--0.25.10.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/p11-kit/0.25.10: 33 files, 4.5MB
+==> Installing gnupg dependency: libevent
+==> Pouring libevent--2.1.12_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libevent/2.1.12_1: 58 files, 2.4MB
+==> Installing gnupg dependency: libnghttp2
+==> Pouring libnghttp2--1.68.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libnghttp2/1.68.0: 14 files, 787.9KB
+==> Installing gnupg dependency: unbound
+==> Pouring unbound--1.24.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/unbound/1.24.1: 59 files, 6.5MB
+==> Installing gnupg dependency: gnutls
+==> Pouring gnutls--3.8.10.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gnutls/3.8.10: 1,296 files, 12.0MB
+==> Installing gnupg dependency: libgpg-error
+==> Pouring libgpg-error--1.56.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libgpg-error/1.56: 50 files, 1.8MB
+==> Installing gnupg dependency: libassuan
+==> Pouring libassuan--3.0.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libassuan/3.0.2: 18 files, 579.3KB
+==> Installing gnupg dependency: libgcrypt
+==> Pouring libgcrypt--1.11.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libgcrypt/1.11.2: 24 files, 4.0MB
+==> Installing gnupg dependency: libksba
+==> Pouring libksba--1.6.7.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libksba/1.6.7: 19 files, 540.8KB
+==> Installing gnupg dependency: libusb
+==> Pouring libusb--1.0.29.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libusb/1.0.29: 23 files, 642.5KB
+==> Installing gnupg dependency: npth
+==> Pouring npth--1.8.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/npth/1.8: 13 files, 172.4KB
+==> Installing gnupg dependency: pinentry
+==> Pouring pinentry--1.3.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/pinentry/1.3.2: 13 files, 473.0KB
+==> Installing gnupg
+==> Pouring gnupg--2.4.8.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gnupg/2.4.8: 144 files, 15.5MB
+==> Running `brew cleanup gnupg`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % brew install pinentry-mac
+
+==> Fetching downloads for: pinentry-mac
+✔︎ Bottle Manifest pinentry-mac (1.3.1.1)                                                                                                       [Downloaded   10.6KB/ 10.6KB]
+✔︎ Bottle pinentry-mac (1.3.1.1)                                                                                                                [Downloaded  344.7KB/344.7KB]
+==> Pouring pinentry-mac--1.3.1.1.arm64_tahoe.bottle.tar.gz
+==> Caveats
+You can now set this as your pinentry program like
+
+~/.gnupg/gpg-agent.conf
+    pinentry-program /opt/homebrew/bin/pinentry-mac
+==> Summary
+🍺  /opt/homebrew/Cellar/pinentry-mac/1.3.1.1: 20 files, 561.8KB
+==> Running `brew cleanup pinentry-mac`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ~/.gnupg/gpg-agent.conf
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % pinentry-program /opt/homebrew/bin/pinentry-mac
+
+zsh: command not found: pinentry-program
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ~/.gnupg/gpg-agent.conf                   
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ~/.gnupg/gpg-agent.conf                   
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ~/.gnupg/gpg-agent.conf
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % mkdir ~/.gnupg/             
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ~/.gnupg/gpg-agent.conf
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % source ~/.zshrc
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % gpg --full-gen-key
+\
+> 
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg (GnuPG) 2.4.8; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+gpg: keybox '/Users/alceualvespasssosmac/.gnupg/pubring.kbx' criada
+Selecione o tipo de chave desejado:
+   (1) RSA e RSA
+   (2) DSA e Elgamal
+   (3) DSA (apenas de assinar)
+   (4) RSA (apenas de assinar)
+   (9) ECC (de assinar e cifrar) *pré-definição*
+  (10) ECC (apenas de assinar)
+  (14) Chave do cartão existente
+Sua opção? 1
+As chaves RSA podem estar entre 1024 e 4096 bits de comprimento.
+Qual tamanho de chave você quer? (3072) 
+O tamanho de chave pedido é 3072 bits
+Especifique quando a chave expira.
+         0 = chave não expira
+      <n>  = chave expira em n dias
+      <n>w = chave expira em n semanas
+      <n>m = chave expira em n meses
+      <n>y = chave expira em n anos
+Quando a chave expira? (0) 0
+A chave não expira de forma alguma
+Isto está correto? (s/N) s
+
+O GnuPG precisa construir uma ID de utilizador para identificar sua chave.
+
+Nome verdadeiro: Alceu Alves Passos
+Endereço de email: alceupassos@gmail.com
+Comentário: Reborn
+Você selecionou este USER-ID:
+    "Alceu Alves Passos (Reborn) <alceupassos@gmail.com>"
+
+Alterar (N)ome, (C)omentário, (E)ndereço, ou (O)k/(S)air? O
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+gpg: /Users/alceualvespasssosmac/.gnupg/trustdb.gpg: trustdb criada
+gpg: pasta '/Users/alceualvespasssosmac/.gnupg/openpgp-revocs.d' criada
+gpg: certificado de revogação armazenado como '/Users/alceualvespasssosmac/.gnupg/openpgp-revocs.d/63876D40A4672AFC7D6F6F94C8BA1667202DAC54.rev'
+chaves pública e privada criadas e assinadas.
+
+pub   rsa3072 2025-11-13 [SC]
+      63876D40A4672AFC7D6F6F94C8BA1667202DAC54
+uid                      Alceu Alves Passos (Reborn) <alceupassos@gmail.com>
+sub   rsa3072 2025-11-13 [E]
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % gpg --full-gen-key
+\
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg (GnuPG) 2.4.8; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Selecione o tipo de chave desejado:
+   (1) RSA e RSA
+   (2) DSA e Elgamal
+   (3) DSA (apenas de assinar)
+   (4) RSA (apenas de assinar)
+   (9) ECC (de assinar e cifrar) *pré-definição*
+  (10) ECC (apenas de assinar)
+  (14) Chave do cartão existente
+Sua opção? 
+gpg: signal Interrupt caught ... exiting
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % gpg --full-gen-key
+\
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % gpg --full-gen-key
+\
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg (GnuPG) 2.4.8; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Selecione o tipo de chave desejado:
+   (1) RSA e RSA
+   (2) DSA e Elgamal
+   (3) DSA (apenas de assinar)
+   (4) RSA (apenas de assinar)
+   (9) ECC (de assinar e cifrar) *pré-definição*
+  (10) ECC (apenas de assinar)
+  (14) Chave do cartão existente
+Sua opção? 1
+As chaves RSA podem estar entre 1024 e 4096 bits de comprimento.
+Qual tamanho de chave você quer? (3072) 
+O tamanho de chave pedido é 3072 bits
+Especifique quando a chave expira.
+         0 = chave não expira
+      <n>  = chave expira em n dias
+      <n>w = chave expira em n semanas
+      <n>m = chave expira em n meses
+      <n>y = chave expira em n anos
+Quando a chave expira? (0) 0
+A chave não expira de forma alguma
+Isto está correto? (s/N) s
+
+O GnuPG precisa construir uma ID de utilizador para identificar sua chave.
+
+Nome verdadeiro: Alceu Alves Passos
+Endereço de email: alceu@me.com
+Comentário: Gitnutts
+Você selecionou este USER-ID:
+    "Alceu Alves Passos (Gitnutts) <alceu@me.com>"
+
+Alterar (N)ome, (C)omentário, (E)ndereço, ou (O)k/(S)air? O
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+gpg: certificado de revogação armazenado como '/Users/alceualvespasssosmac/.gnupg/openpgp-revocs.d/9FAF94EC355A3882CA1124A042C77248D65BD976.rev'
+chaves pública e privada criadas e assinadas.
+
+pub   rsa3072 2025-11-13 [SC]
+      9FAF94EC355A3882CA1124A042C77248D65BD976
+uid                      Alceu Alves Passos (Gitnutts) <alceu@me.com>
+sub   rsa3072 2025-11-13 [E]
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % git config --global user.signingkey 9FAF94EC355A3882CA1124A042C77248D65BD976
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % gpg --list-secret-keys --keyid-format SHORT
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg: verificando a trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: profundidade: 0 válidas:   2 assinadas:   0 confiáveis: 0-, 0i, 0n, 0m, 0c, 2p
+/Users/alceualvespasssosmac/.gnupg/pubring.kbx
+----------------------------------------------
+sec   rsa3072/202DAC54 2025-11-13 [SC]
+      63876D40A4672AFC7D6F6F94C8BA1667202DAC54
+uid       [   plena  ] Alceu Alves Passos (Reborn) <alceupassos@gmail.com>
+ssb   rsa3072/1B4CE467 2025-11-13 [E]
+
+sec   rsa3072/D65BD976 2025-11-13 [SC]
+      9FAF94EC355A3882CA1124A042C77248D65BD976
+uid       [   plena  ] Alceu Alves Passos (Gitnutts) <alceu@me.com>
+ssb   rsa3072/4150AD5B 2025-11-13 [E]
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % pwd
+/Users/alceualvespasssosmac/.ssh
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd finapp_V4 
+cd: no such file or directory: finapp_V4
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd finapp_v4
+cd: no such file or directory: finapp_v4
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd /Users/alceualvespasssosmac/
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd finapp_v4                   
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % /Users/alceualvespasssosmac/git config --global commit.gpgsign true
+git config --global tag.gpgSign true
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % git config --global commit.gpgsign true
+git config --global tag.gpgSign true
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % 
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --armor --export SEU_KEY_ID | pbcopy
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg: AVISO: nada exportado
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpgconf --kill gpg-agent
+gpgconf --launch gpg-agent
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % export GPG_TTY=$(tty)
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --list-secret-keys --keyid-format SHORT
+gpg --full-generate-key
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --full-generate-key
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg (GnuPG) 2.4.8; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Selecione o tipo de chave desejado:
+   (1) RSA e RSA
+   (2) DSA e Elgamal
+   (3) DSA (apenas de assinar)
+   (4) RSA (apenas de assinar)
+   (9) ECC (de assinar e cifrar) *pré-definição*
+  (10) ECC (apenas de assinar)
+  (14) Chave do cartão existente
+Sua opção? 
+Selecione qual a curva elíptica que você deseja:
+   (1) Curve 25519 *pré-definição*
+   (4) NIST P-384
+   (6) Brainpool P-256
+Sua opção? 
+Especifique quando a chave expira.
+         0 = chave não expira
+      <n>  = chave expira em n dias
+      <n>w = chave expira em n semanas
+      <n>m = chave expira em n meses
+      <n>y = chave expira em n anos
+Quando a chave expira? (0) 
+A chave não expira de forma alguma
+Isto está correto? (s/N) s
+
+O GnuPG precisa construir uma ID de utilizador para identificar sua chave.
+
+Nome verdadeiro: Alceu Alves Passos
+Endereço de email: alceu@me.com
+Comentário: GPG
+Você selecionou este USER-ID:
+    "Alceu Alves Passos (GPG) <alceu@me.com>"
+
+Alterar (N)ome, (C)omentário, (E)ndereço, ou (O)k/(S)air? O
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+gpg: certificado de revogação armazenado como '/Users/alceualvespasssosmac/.gnupg/openpgp-revocs.d/92C0BFD831E64E25DDD4EED8C77B9E34B8CC164B.rev'
+chaves pública e privada criadas e assinadas.
+
+pub   ed25519 2025-11-13 [SC]
+      92C0BFD831E64E25DDD4EED8C77B9E34B8CC164B
+uid                      Alceu Alves Passos (GPG) <alceu@me.com>
+sub   cv25519 2025-11-13 [E]
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --list-secret-keys --keyid-format=long
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg: verificando a trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: profundidade: 0 válidas:   3 assinadas:   0 confiáveis: 0-, 0i, 0n, 0m, 0c, 3p
+/Users/alceualvespasssosmac/.gnupg/pubring.kbx
+----------------------------------------------
+sec   rsa3072/C8BA1667202DAC54 2025-11-13 [SC]
+      63876D40A4672AFC7D6F6F94C8BA1667202DAC54
+uid               [   plena  ] Alceu Alves Passos (Reborn) <alceupassos@gmail.com>
+ssb   rsa3072/475670A81B4CE467 2025-11-13 [E]
+
+sec   rsa3072/42C77248D65BD976 2025-11-13 [SC]
+      9FAF94EC355A3882CA1124A042C77248D65BD976
+uid               [   plena  ] Alceu Alves Passos (Gitnutts) <alceu@me.com>
+ssb   rsa3072/0B5F70A94150AD5B 2025-11-13 [E]
+
+sec   ed25519/C77B9E34B8CC164B 2025-11-13 [SC]
+      92C0BFD831E64E25DDD4EED8C77B9E34B8CC164B
+uid               [   plena  ] Alceu Alves Passos (GPG) <alceu@me.com>
+ssb   cv25519/D920B97998FC57EF 2025-11-13 [E]
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --full-generate-key
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg (GnuPG) 2.4.8; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Selecione o tipo de chave desejado:
+   (1) RSA e RSA
+   (2) DSA e Elgamal
+   (3) DSA (apenas de assinar)
+   (4) RSA (apenas de assinar)
+   (9) ECC (de assinar e cifrar) *pré-definição*
+  (10) ECC (apenas de assinar)
+  (14) Chave do cartão existente
+Sua opção? 4
+As chaves RSA podem estar entre 1024 e 4096 bits de comprimento.
+Qual tamanho de chave você quer? (3072) 
+O tamanho de chave pedido é 3072 bits
+Especifique quando a chave expira.
+         0 = chave não expira
+      <n>  = chave expira em n dias
+      <n>w = chave expira em n semanas
+      <n>m = chave expira em n meses
+      <n>y = chave expira em n anos
+Quando a chave expira? (0) 0
+A chave não expira de forma alguma
+Isto está correto? (s/N) s
+
+O GnuPG precisa construir uma ID de utilizador para identificar sua chave.
+
+Nome verdadeiro: Alceu Alves Passos
+Endereço de email: alceu@me.com
+Comentário: gpgsign
+Você selecionou este USER-ID:
+    "Alceu Alves Passos (gpgsign) <alceu@me.com>"
+
+Alterar (N)ome, (C)omentário, (E)ndereço, ou (O)k/(S)air? O
+Precisamos gerar muitos bytes aleatórios. É uma boa ideia realizar outra
+atividade (escrever no teclado, mover o rato, usar os discos) durante a
+geração dos números primos; isto dá ao gerador de números aleatórios
+uma hipótese maior de ganhar entropia suficiente.
+gpg: certificado de revogação armazenado como '/Users/alceualvespasssosmac/.gnupg/openpgp-revocs.d/CD299532CA8FACA37FF837C5725A43FEFA8BB91F.rev'
+chaves pública e privada criadas e assinadas.
+
+Repare que esta chave não pode ser usada para cifração.  Poderá querer usar
+o comando "--edit-key" para gerar uma subchave com esta finalidade.
+pub   rsa3072 2025-11-13 [SC]
+      CD299532CA8FACA37FF837C5725A43FEFA8BB91F
+uid                      Alceu Alves Passos (gpgsign) <alceu@me.com>
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --list-secret-keys --keyid-format=long
+
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+gpg: verificando a trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: profundidade: 0 válidas:   4 assinadas:   0 confiáveis: 0-, 0i, 0n, 0m, 0c, 4p
+/Users/alceualvespasssosmac/.gnupg/pubring.kbx
+----------------------------------------------
+sec   rsa3072/C8BA1667202DAC54 2025-11-13 [SC]
+      63876D40A4672AFC7D6F6F94C8BA1667202DAC54
+uid               [   plena  ] Alceu Alves Passos (Reborn) <alceupassos@gmail.com>
+ssb   rsa3072/475670A81B4CE467 2025-11-13 [E]
+
+sec   rsa3072/42C77248D65BD976 2025-11-13 [SC]
+      9FAF94EC355A3882CA1124A042C77248D65BD976
+uid               [   plena  ] Alceu Alves Passos (Gitnutts) <alceu@me.com>
+ssb   rsa3072/0B5F70A94150AD5B 2025-11-13 [E]
+
+sec   ed25519/C77B9E34B8CC164B 2025-11-13 [SC]
+      92C0BFD831E64E25DDD4EED8C77B9E34B8CC164B
+uid               [   plena  ] Alceu Alves Passos (GPG) <alceu@me.com>
+ssb   cv25519/D920B97998FC57EF 2025-11-13 [E]
+
+sec   rsa3072/725A43FEFA8BB91F 2025-11-13 [SC]
+      CD299532CA8FACA37FF837C5725A43FEFA8BB91F
+uid               [   plena  ] Alceu Alves Passos (gpgsign) <alceu@me.com>
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --armor --export 3AA5C34371567BD2
+# Prints the GPG key ID, in ASCII armor format
+  725A43FEFA8BB91F
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % gpg --armor --export 725A43FEFA8BB91F 
+gpg: AVISO: permissões inseguras na homedir '/Users/alceualvespasssosmac/.gnupg'
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQGNBGkVXfIBDACuUdDN3U8Ji2/fJT49iAuzT/Q2LoE1ntYkBAQ9VkfVD/c3hIV8
+NbWE25LTYrs28tQuNT76EuxHXrXdpxyN9XfP0+MDu2CwKuOlPFriGaQru9EzO6Rh
+H+WK0JE96EQaClpVesfWkwPNXq/e9lAVK5Jnt483H4wQvdcQkPjpLOnMFFyfk/4r
+SK2VGzKSn9FZqMmFO5ypoY541x5LP72KAPqppuW03/E9jOqDX/H6VB+hMXvKdIZg
+VOSUa7/lzUOEzsxzoemfqzzRqxfVf/R8duh93mY2/SiVi86Ec3j9mIKHe96X76Jz
+R4DDg28NYlS8HlngKaGFpExeyjNTJo/u0Cv6sSdw8RXcVfjToYZQYdFpdjAM55bg
+TfyxHExrIsoNlohH2ymb7pdvH2ofopSOb4oKj601a8w2BjqmlvdvKfDuP22gJo+q
+e0YMCm/DORXTcPfznl9rrHouUJusgg5D7QTyPYFwJDd8eCx98J53hDB932avlp7b
+t0FBa7aZtQh1M/kAEQEAAbQrQWxjZXUgQWx2ZXMgUGFzc29zIChncGdzaWduKSA8
+YWxjZXVAbWUuY29tPokB0QQTAQgAOxYhBM0plTLKj6yjf/g3xXJaQ/76i7kfBQJp
+FV3yAhsDBQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEHJaQ/76i7kfKL0M
+AKPArnZUrBOhspA0KDIAGYYxhsA1eLtpanQWm6e8Es9AaTkhBfXWeFsBhCl9iGrK
+/OwsM7KspmG4267P1zHQXUcTveGUhdbKkV0fHyrN8B6EuSzF62wIpHo/UyBUk/Tz
+x9wkEL2Jq48b5V7xUYh7kaQUCBIpMxNAcyNEWQ0uQ+5LWPfEXiSH/TcIGtO3GdRi
+A1X7eJFqFZAs12MBH7gB+1IrO6UZre4vDWLx489+I6c2Ts3wieSjs4f4xsq/ez3c
+yMtaRKM7KcTESBNySkl/QrvH+fIjwFuot3E+4ghblxy5iNTCmAHCbAb5zrx8snJv
+s31e5HT6RaOjEEptIL3sAAyzmYhmKoXnI+pMBDPkp+CPnabAMs8hKAFVonkO/k6g
+9f2y0+m1VEJnJJjY7vUp5B+Cn/0lgMD5eehIr1WXk0qM3YUhcBUd0lmDVh7kVi3p
+H2JVWvcvmna6XqDkdqxdwrWmoYsbCwy5TixyUFzn3LaU/sH7KxeoNzRQjPfKcPgb
+RA==
+=ZowS
+-----END PGP PUBLIC KEY BLOCK-----
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % 
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % git config --global user.signingkey 725A43FEFA8BB91F
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % git config --global commit.gpgsign true
+git config --global tag.gpgSign true
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f ~/.ssh/gha_deploy
+Generating public/private ed25519 key pair.
+Enter passphrase for "/Users/alceualvespasssosmac/.ssh/gha_deploy" (empty for no passphrase): 
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f ~/.ssh/gha_deploy
+Generating public/private ed25519 key pair.
+Enter passphrase for "/Users/alceualvespasssosmac/.ssh/gha_deploy" (empty for no passphrase): 
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f ~/.ssh/gha_deploy
+Generating public/private ed25519 key pair.
+Enter passphrase for "/Users/alceualvespasssosmac/.ssh/gha_deploy" (empty for no passphrase): 
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f
+ssh-keygen: option requires an argument -- f
+usage: ssh-keygen [-q] [-a rounds] [-b bits] [-C comment] [-f output_keyfile]
+                  [-m format] [-N new_passphrase] [-O option]
+                  [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa]
+                  [-w provider] [-Z cipher]
+       ssh-keygen -p [-a rounds] [-f keyfile] [-m format] [-N new_passphrase]
+                   [-P old_passphrase] [-Z cipher]
+       ssh-keygen -i [-f input_keyfile] [-m key_format]
+       ssh-keygen -e [-f input_keyfile] [-m key_format]
+       ssh-keygen -y [-f input_keyfile]
+       ssh-keygen -c [-a rounds] [-C comment] [-f keyfile] [-P passphrase]
+       ssh-keygen -l [-v] [-E fingerprint_hash] [-f input_keyfile]
+       ssh-keygen -B [-f input_keyfile]
+       ssh-keygen -D pkcs11
+       ssh-keygen -F hostname [-lv] [-f known_hosts_file]
+       ssh-keygen -H [-f known_hosts_file]
+       ssh-keygen -K [-a rounds] [-w provider]
+       ssh-keygen -R hostname [-f known_hosts_file]
+       ssh-keygen -r hostname [-g] [-f input_keyfile]
+       ssh-keygen -M generate [-O option] output_file
+       ssh-keygen -M screen [-f input_file] [-O option] output_file
+       ssh-keygen -I certificate_identity -s ca_key [-hU] [-D pkcs11_provider]
+                  [-n principals] [-O option] [-V validity_interval]
+                  [-z serial_number] file ...
+       ssh-keygen -L [-f input_keyfile]
+       ssh-keygen -A [-a rounds] [-f prefix_path]
+       ssh-keygen -k -f krl_file [-u] [-s ca_public] [-z version_number]
+                  file ...
+       ssh-keygen -Q [-l] -f krl_file [file ...]
+       ssh-keygen -Y find-principals -s signature_file -f allowed_signers_file
+       ssh-keygen -Y match-principals -I signer_identity -f allowed_signers_file
+       ssh-keygen -Y check-novalidate -n namespace -s signature_file
+       ssh-keygen -Y sign -f key_file -n namespace file [-O option] ...
+       ssh-keygen -Y verify -f allowed_signers_file -I signer_identity
+                  -n namespace -s signature_file [-r krl_file] [-O option]
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f 
+ssh-keygen: option requires an argument -- f
+usage: ssh-keygen [-q] [-a rounds] [-b bits] [-C comment] [-f output_keyfile]
+                  [-m format] [-N new_passphrase] [-O option]
+                  [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa]
+                  [-w provider] [-Z cipher]
+       ssh-keygen -p [-a rounds] [-f keyfile] [-m format] [-N new_passphrase]
+                   [-P old_passphrase] [-Z cipher]
+       ssh-keygen -i [-f input_keyfile] [-m key_format]
+       ssh-keygen -e [-f input_keyfile] [-m key_format]
+       ssh-keygen -y [-f input_keyfile]
+       ssh-keygen -c [-a rounds] [-C comment] [-f keyfile] [-P passphrase]
+       ssh-keygen -l [-v] [-E fingerprint_hash] [-f input_keyfile]
+       ssh-keygen -B [-f input_keyfile]
+       ssh-keygen -D pkcs11
+       ssh-keygen -F hostname [-lv] [-f known_hosts_file]
+       ssh-keygen -H [-f known_hosts_file]
+       ssh-keygen -K [-a rounds] [-w provider]
+       ssh-keygen -R hostname [-f known_hosts_file]
+       ssh-keygen -r hostname [-g] [-f input_keyfile]
+       ssh-keygen -M generate [-O option] output_file
+       ssh-keygen -M screen [-f input_file] [-O option] output_file
+       ssh-keygen -I certificate_identity -s ca_key [-hU] [-D pkcs11_provider]
+                  [-n principals] [-O option] [-V validity_interval]
+                  [-z serial_number] file ...
+       ssh-keygen -L [-f input_keyfile]
+       ssh-keygen -A [-a rounds] [-f prefix_path]
+       ssh-keygen -k -f krl_file [-u] [-s ca_public] [-z version_number]
+                  file ...
+       ssh-keygen -Q [-l] -f krl_file [file ...]
+       ssh-keygen -Y find-principals -s signature_file -f allowed_signers_file
+       ssh-keygen -Y match-principals -I signer_identity -f allowed_signers_file
+       ssh-keygen -Y check-novalidate -n namespace -s signature_file
+       ssh-keygen -Y sign -f key_file -n namespace file [-O option] ...
+       ssh-keygen -Y verify -f allowed_signers_file -I signer_identity
+                  -n namespace -s signature_file [-r krl_file] [-O option]
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f ~/.ssh/gha_deploy
+Generating public/private ed25519 key pair.
+Enter passphrase for "/Users/alceualvespasssosmac/.ssh/gha_deploy" (empty for no passphrase): 
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "gha-deploy" -f ~/.ssh/gha_deployssh-keygen -t ed25519 -C "macbook-alceu"
+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "macbook-alceu"
+
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/alceualvespasssosmac/.ssh/id_ed25519): ^C                   
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano ./ssh/id_ed25519
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano ./ssh/id_ed25519.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ls -l ./ssh                                   
+ls: ./ssh: No such file or directory
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % cd ./ssg
+cd: no such file or directory: ./ssg
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % la -l
+zsh: command not found: la
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % lcd ./ssh
+zsh: command not found: lcd
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % cd ./ssh
+cd: no such file or directory: ./ssh
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % cd .. 
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd ~/.ssh                                                             
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ls -l
+total 128
+-rw-r--r--@ 1 alceualvespasssosmac  staff   226  2 nov 04:06 config
+-rw-------@ 1 alceualvespasssosmac  staff   399  2 nov 04:04 contabo_vps
+-rw-r--r--@ 1 alceualvespasssosmac  staff    93  2 nov 04:04 contabo_vps.pub
+-rw-------@ 1 alceualvespasssosmac  staff   411  8 nov 18:37 ia_deploy_key
+-rw-------@ 1 alceualvespasssosmac  staff   411  6 nov 11:20 id_ed25519
+-rw-------  1 alceualvespasssosmac  staff   411 25 out 07:23 id_ed25519_angra
+-rw-r--r--  1 alceualvespasssosmac  staff   100 25 out 07:23 id_ed25519_angra.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:07 id_ed25519_deploy.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  6 nov 11:20 id_ed25519.pub
+-rw-------  1 alceualvespasssosmac  staff   121  6 nov 11:44 id_ed25519.pub.save
+-rw-------@ 1 alceualvespasssosmac  staff  3450  7 nov 19:40 known_hosts
+-rw-------@ 1 alceualvespasssosmac  staff  2714  7 nov 19:36 known_hosts.old
+-rw-------@ 1 alceualvespasssosmac  staff   411  2 nov 04:06 vps_contabo
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:06 vps_contabo.pub
+-rw-------  1 alceualvespasssosmac  staff  3422 11 nov 21:37 vps_key
+-rw-r--r--  1 alceualvespasssosmac  staff   773 11 nov 21:37 vps_key.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano id_ed25519.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nao id_25519.pub                                    
+zsh: command not found: nao
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano id_25519.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano id_ed25519.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ssh-copy-id -i ~/.ssh/gha_deploy.pub root@147.93.183.55 
+
+/usr/bin/ssh-copy-id: ERROR: failed to open ID file '/Users/alceualvespasssosmac/.ssh/gha_deploy.pub': No such file or directory
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ssh-copy-id -i ~/.ssh/id_ed25519.pub root@147.93.183.55 
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/Users/alceualvespasssosmac/.ssh/id_ed25519.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		(if you think this is a mistake, you may want to use -f option)
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ssh-copy-id -i ~/.ssh/id_ed25519 root@147.93.183.55  
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/Users/alceualvespasssosmac/.ssh/id_ed25519.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		(if you think this is a mistake, you may want to use -f option)
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano id_ed25519                                         
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ./ssh/id_ed25519                                
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % nano ~/.ssh/gha_deploy
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % SUDO ssh-keygen -t ed25519 -C "macbook-alceu"        
+
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % sudo ssh-keygen -t ed25519 -C "gha-deploy" -f       
+Password:
+sudo: a password is required
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % sudo ssh-keygen -t ed25519 -C "gha-deploy" -f
+Password:
+sudo: a password is required
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ssh-keygen -p -f ~/.ssh/id_rsa
+
+/Users/alceualvespasssosmac/.ssh/id_rsa: No such file or directory
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd ..
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd ~/.ssh                                            
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % ls -l
+total 128
+-rw-r--r--@ 1 alceualvespasssosmac  staff   226  2 nov 04:06 config
+-rw-------@ 1 alceualvespasssosmac  staff   399  2 nov 04:04 contabo_vps
+-rw-r--r--@ 1 alceualvespasssosmac  staff    93  2 nov 04:04 contabo_vps.pub
+-rw-------@ 1 alceualvespasssosmac  staff   411  8 nov 18:37 ia_deploy_key
+-rw-------@ 1 alceualvespasssosmac  staff   411  6 nov 11:20 id_ed25519
+-rw-------  1 alceualvespasssosmac  staff   411 25 out 07:23 id_ed25519_angra
+-rw-r--r--  1 alceualvespasssosmac  staff   100 25 out 07:23 id_ed25519_angra.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:07 id_ed25519_deploy.pub
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  6 nov 11:20 id_ed25519.pub
+-rw-------  1 alceualvespasssosmac  staff   121  6 nov 11:44 id_ed25519.pub.save
+-rw-------@ 1 alceualvespasssosmac  staff  3450  7 nov 19:40 known_hosts
+-rw-------@ 1 alceualvespasssosmac  staff  2714  7 nov 19:36 known_hosts.old
+-rw-------@ 1 alceualvespasssosmac  staff   411  2 nov 04:06 vps_contabo
+-rw-r--r--@ 1 alceualvespasssosmac  staff   101  2 nov 04:06 vps_contabo.pub
+-rw-------  1 alceualvespasssosmac  staff  3422 11 nov 21:37 vps_key
+-rw-r--r--  1 alceualvespasssosmac  staff   773 11 nov 21:37 vps_key.pub
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % 
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd ./
+alceualvespasssosmac@MacBook-Air-de-Alceu .ssh % cd ..
+alceualvespasssosmac@MacBook-Air-de-Alceu ~ % cd /
+alceualvespasssosmac@MacBook-Air-de-Alceu / % ls -l
+total 10
+drwxrwxr-x  42 root  admin  1344 12 nov 16:26 Applications
+drwxr-xr-x@ 39 root  wheel  1248  3 nov 18:26 bin
+drwxr-xr-x   2 root  wheel    64  7 dez  2024 cores
+dr-xr-xr-x   4 root  wheel  4856 12 nov 16:48 dev
+lrwxr-xr-x@  1 root  wheel    11  3 nov 18:26 etc -> private/etc
+lrwxr-xr-x   1 root  wheel    25 12 nov 16:49 home -> /System/Volumes/Data/home
+drwxr-xr-x  69 root  wheel  2208  9 nov 08:10 Library
+drwxr-xr-x   3 root  wheel    96 22 jul 15:02 opt
+drwxr-xr-x   2 root  wheel    64  3 nov 18:26 pkg
+drwxr-xr-x   6 root  wheel   192 12 nov 16:49 private
+drwxr-xr-x@ 76 root  wheel  2432  3 nov 18:26 sbin
+drwxr-xr-x@ 10 root  wheel   320  3 nov 18:26 System
+lrwxr-xr-x@  1 root  wheel    11  3 nov 18:26 tmp -> private/tmp
+drwxr-xr-x   6 root  admin   192  9 nov 08:10 Users
+drwxr-xr-x@ 11 root  wheel   352  3 nov 18:26 usr
+lrwxr-xr-x@  1 root  wheel    11  3 nov 18:26 var -> private/var
+drwxr-xr-x   3 root  wheel    96 12 nov 22:23 Volumes
+alceualvespasssosmac@MacBook-Air-de-Alceu / % cd Users
+alceualvespasssosmac@MacBook-Air-de-Alceu /Users % cd alceualvespassosmac
+cd: no such file or directory: alceualvespassosmac
+alceualvespasssosmac@MacBook-Air-de-Alceu /Users % ls -l
+total 0
+drwxr-x---+ 132 alceualvespasssosmac  staff  4224 13 nov 01:32 alceualvespasssosmac
+drwxr-x---+  26 jessicastetzuhn       staff   832  1 nov 00:07 jessicastetzuhn
+drwxrwxrwt   27 root                  wheel   864 12 nov 23:27 Shared
+alceualvespasssosmac@MacBook-Air-de-Alceu /Users % cd alceualvespassosmac
+cd: no such file or directory: alceualvespassosmac
+alceualvespasssosmac@MacBook-Air-de-Alceu /Users % cd finapp_v4
+cd: no such file or directory: finapp_v4
+alceualvespasssosmac@MacBook-Air-de-Alceu /Users % cd ~/finapp_v4        
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % sudo ssh-keygen -t ed25519 -C "gha-deploy" -f
+Password:
+sudo: a password is required
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C ""                     
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/alceualvespasssosmac/.ssh/id_ed25519): ^C
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % ssh-keygen -t ed25519 -C "mac-vps" -f ~/.ssh/id_ed25519_vps -N ""
+Generating public/private ed25519 key pair.
+Your identification has been saved in /Users/alceualvespasssosmac/.ssh/id_ed25519_vps
+Your public key has been saved in /Users/alceualvespasssosmac/.ssh/id_ed25519_vps.pub
+The key fingerprint is:
+SHA256:53h9uaj642x4DZ5l8NvEa1cQ5g9XRaSHT1o1nig1UGk mac-vps
+The key's randomart image is:
++--[ED25519 256]--+
+|           .o+.+*|
+|            .E*o=|
+|           ..+o+=|
+|          . . +*.|
+|        S .o ..=.|
+|         +..+ o.o|
+|        .oo*.+o..|
+|        .o* oo+..|
+|        .*=o.... |
++----[SHA256]-----+
+alceualvespasssosmac@MacBook-Air-de-Alceu finapp_v4 % nano /Users/alceualvespasssosmac/.ssh/id_ed25519_vps
+
+  UW PICO 5.09                                                   File: /Users/alceualvespasssosmac/.ssh/id_ed25519_vps                                                      
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACBq2on/kcQT/O7U4WGA32b9h/ERqYHaXxnV+Dn7ZrgnjQAAAJDqL6KJ6i+i
+iQAAAAtzc2gtZWQyNTUxOQAAACBq2on/kcQT/O7U4WGA32b9h/ERqYHaXxnV+Dn7ZrgnjQ
+AAAEA1F2TRmwt110YUPrCSXxMkpheUpdggfFDQZ51IXURMtmraif+RxBP87tThYYDfZv2H
+8RGpgdpfGdX4OftmuCeNAAAAB21hYy12cHMBAgMEBQY=
+-----END OPENSSH PRIVATE KEY-----

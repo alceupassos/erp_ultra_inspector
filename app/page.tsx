@@ -43,7 +43,7 @@ export default function Page() {
   const [activeTab, setActiveTab] = useState<'overview' | 'security' | 'performance'>('overview');
   const [logs, setLogs] = useState<Array<{ ts: number; type: 'info' | 'error' | 'success'; msg: string }>>([]);
   const [connectionSecurity, setConnectionSecurity] = useState<'tls' | 'insecure' | null>(null);
-  const defaultConfig = { server: '104.234.224.238', port: 1445, user: 'angrax', database: 'sgq', connTimeout: 15000, reqTimeout: 15000, tds: '7.4' };
+  const defaultConfig = { server: '104.234.224.238', port: 1445, user: 'angrax', database: 'sgc', connTimeout: 15000, reqTimeout: 15000, tds: '7.4' };
   const hasPortIssue = logs.some((l) => l.msg.includes('Porta 1445 inacess'));
   const hasTlsFallback = connectionSecurity === 'insecure';
   const hasLoginIssue = aiSummary?.toLowerCase().includes('elogin') || aiSummary?.toLowerCase().includes('login');
@@ -100,7 +100,7 @@ export default function Page() {
           }}
         >Ir para Landing</button>
       </div>
-      <main className="flex flex-1 overflow-hidden">
+      <main className="flex flex-1 overflow-hidden h-full">
         <Sidebar>
           <ConnectionForm
             onAnalysis={handleAnalysis}
@@ -194,7 +194,7 @@ export default function Page() {
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div className="text-muted-foreground">Servidor</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.server}</div>
                     <div className="text-muted-foreground">Porta</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.port}</div>
-                    <div className="text-muted-foreground">Banco</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.database}</div>
+                    <div className="text-muted-foreground">Banco de dados</div><div className="text-primary glow-orange-subtle font-mono">{analysis?.database || defaultConfig.database}</div>
                     <div className="text-muted-foreground">Usuário</div><div className="text-primary glow-orange-subtle font-mono">{defaultConfig.user}</div>
                     <div className="text-muted-foreground">TLS</div><div className="text-primary glow-orange-subtle">{connectionSecurity === 'tls' ? '✓ Segura via TLS/SSL' : connectionSecurity === 'insecure' ? '⚠ Insegura (TrustServerCertificate)' : 'Auto: tenta TLS, fallback inseguro'}</div>
                     <div className="text-muted-foreground">Timeout conexão</div><div className="text-primary glow-orange-subtle">{defaultConfig.connTimeout} ms</div>

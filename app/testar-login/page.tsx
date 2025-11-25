@@ -6,7 +6,7 @@ export default function TestarLogin() {
   const [port, setPort] = useState(1445);
   const [user, setUser] = useState("angrax");
   const [password, setPassword] = useState("");
-  const [database, setDatabase] = useState("sgq");
+  const [database, setDatabase] = useState("sgc");
   const [logs, setLogs] = useState<string[]>([]);
 
   const add = (m: string) => setLogs((p) => [...p, m]);

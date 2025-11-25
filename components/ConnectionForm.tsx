@@ -15,7 +15,8 @@ type Props = {
 export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props) {
   const [user, setUser] = useState("angrax");
   const [password, setPassword] = useState("");
-  const [database, setDatabase] = useState("sgq");
+  const [database, setDatabase] = useState("sgc");
+  const [useTls, setUseTls] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -53,7 +54,8 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
           port: 1445,
           user,
           password,
-          database
+          database,
+          useTls
         })
       });
 
@@ -100,12 +102,6 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
         <div role="alert" className="rounded-xl border-2 border-red-500/60 bg-red-900/30 text-red-300 p-4 glow-border backdrop-blur-sm">
           <div className="font-semibold mb-2 glow-orange-soft">⚠️ Erro de Conexão</div>
           <div className="text-sm">{error}</div>
-          <div className="grid grid-cols-2 gap-2 text-xs mt-3 pt-3 border-t border-red-500/30">
-            <div className="text-muted-foreground">Servidor</div><div className="text-primary glow-orange-subtle">104.234.224.238</div>
-            <div className="text-muted-foreground">Porta</div><div className="text-primary glow-orange-subtle">1445</div>
-            <div className="text-muted-foreground">Banco</div><div className="text-primary glow-orange-subtle">{database || ""}</div>
-            <div className="text-muted-foreground">Usuário</div><div className="text-primary glow-orange-subtle">{user || ""}</div>
-          </div>
         </div>
       )}
       <div className="space-y-2">
@@ -148,12 +144,48 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
       <div className="space-y-2">
         <Label className="text-sm font-semibold glow-orange-subtle">Banco de dados</Label>
         <Input
-          placeholder="ex.: sgq"
+          type="text"
+          placeholder="ex.: sgc"
           value={database}
           onChange={(e) => setDatabase(e.target.value)}
           required
+          autoComplete="off"
           className="bg-black/30 border-primary/30 text-primary placeholder:text-muted-foreground focus:border-primary focus:glow-border"
         />
+      </div>
+      <div className="flex items-center space-x-3 p-3 rounded-xl border border-primary/20 bg-black/20 hover:border-primary/30 transition-all">
+        <div className="relative flex items-center">
+          <input
+            type="checkbox"
+            id="useTls"
+            checked={useTls}
+            onChange={(e) => setUseTls(e.target.checked)}
+            className="peer sr-only"
+          />
+          <label
+            htmlFor="useTls"
+            className="flex items-center cursor-pointer"
+          >
+            <div className={`
+              relative w-11 h-6 rounded-full transition-all duration-300
+              ${useTls 
+                ? 'bg-primary/40 border-2 border-primary' 
+                : 'bg-black/40 border-2 border-primary/30'
+              }
+            `}>
+              <div className={`
+                absolute top-0.5 left-0.5 w-5 h-5 rounded-full transition-all duration-300
+                ${useTls 
+                  ? 'bg-primary translate-x-5 shadow-lg shadow-primary/50' 
+                  : 'bg-muted-foreground/40 translate-x-0'
+                }
+              `} />
+            </div>
+            <span className="ml-3 text-sm font-semibold glow-orange-subtle">
+              🔒 Usar TLS/SSL (Conexão Segura)
+            </span>
+          </label>
+        </div>
       </div>
       <Button 
         type="submit" 
@@ -170,6 +202,51 @@ export function ConnectionForm({ onAnalysis, loading, setLoading, onLog }: Props
         variant="outline"
       >
         📄 Gerar conexão (.md)
+      </Button>
+      <Button 
+        type="button" 
+        onClick={async () => {
+          if (!user || !password || !database) return;
+          setLoading(true);
+          try {
+            const res = await fetch("/api/export-schema", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                server: "104.234.224.238",
+                port: 1445,
+                user,
+                password,
+                database
+              })
+            });
+            if (!res.ok) {
+              const json = await res.json();
+              setError(json?.error || "Erro ao exportar schema");
+              return;
+            }
+            const blob = await res.blob();
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `schema-export-${database}-${Date.now()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            onLog?.("Schema exportado com sucesso", "success");
+          } catch (e: any) {
+            setError(e?.message || "Erro ao exportar schema");
+            onLog?.(e?.message || "Erro ao exportar schema", "error");
+          } finally {
+            setLoading(false);
+          }
+        }}
+        disabled={loading || !user || !password || !database} 
+        className="w-full bg-transparent border-primary/30 text-primary hover:bg-primary/10 transition-all glow-border" 
+        variant="outline"
+      >
+        📥 Exportar Schema Completo (JSON)
       </Button>
       <p className="text-[11px] text-muted-foreground glow-orange-subtle leading-relaxed">
         Os dados são usados apenas para esta sessão de análise, via conexão
