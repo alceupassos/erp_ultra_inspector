@@ -40,7 +40,9 @@ export default function Page() {
   const [queryPerformance, setQueryPerformance] = useState<QueryPerformanceInfo[]>([]);
   const [recommendations, setRecommendations] = useState<string[]>([]);
   const [aiSummary, setAiSummary] = useState<string>("");
-  const [activeTab, setActiveTab] = useState<'overview' | 'security' | 'performance'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'security' | 'performance' | 'schemas'>('overview');
+  const [schemasData, setSchemasData] = useState<any>(null);
+  const [credentials, setCredentials] = useState<{user: string, password: string} | null>(null);
   const [logs, setLogs] = useState<Array<{ ts: number; type: 'info' | 'error' | 'success'; msg: string }>>([]);
   const [connectionSecurity, setConnectionSecurity] = useState<'tls' | 'insecure' | null>(null);
   const defaultConfig = { server: '104.234.224.238', port: 1445, user: 'angrax', database: 'sgc', connTimeout: 15000, reqTimeout: 15000, tds: '7.4' };
@@ -103,7 +105,13 @@ export default function Page() {
       <main className="flex flex-1 overflow-hidden h-full">
         <Sidebar>
           <ConnectionForm
-            onAnalysis={handleAnalysis}
+            onAnalysis={(data) => {
+              handleAnalysis(data);
+              // Armazenar credenciais para uso na aba schemas
+              if (data?.analysis && !data?.error) {
+                setCredentials({ user: defaultConfig.user, password: "" }); // Senha não é armazenada por segurança
+              }
+            }}
             loading={loading}
             setLoading={setLoading}
             onLog={addLog}
@@ -143,6 +151,48 @@ export default function Page() {
                   }`}
                 >
                   Performance & Otimização
+                </button>
+                <button
+                  onClick={async () => {
+                    setActiveTab('schemas');
+                    if (!schemasData && analysis) {
+                      setLoading(true);
+                      addLog("Carregando schemas e tabelas...", "info");
+                      try {
+                        // Solicitar senha se necessário (por enquanto usa análise existente)
+                        const res = await fetch("/api/schemas-tables", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            server: defaultConfig.server,
+                            port: defaultConfig.port,
+                            user: defaultConfig.user,
+                            password: prompt("Digite a senha do banco para carregar schemas:") || "",
+                            database: analysis.database || defaultConfig.database
+                          })
+                        });
+                        if (res.ok) {
+                          const data = await res.json();
+                          setSchemasData(data);
+                          addLog(`✅ Carregados ${data.summary.totalSchemas} schemas, ${data.summary.totalTables} tabelas e ${data.summary.totalViews} views`, "success");
+                        } else {
+                          const error = await res.json();
+                          addLog("❌ Erro: " + (error.error || "Falha ao carregar"), "error");
+                        }
+                      } catch (e: any) {
+                        addLog("❌ Erro ao carregar schemas: " + (e?.message || String(e)), "error");
+                      } finally {
+                        setLoading(false);
+                      }
+                    }
+                  }}
+                  className={`px-6 py-3 text-sm font-semibold rounded-t-xl transition-all glow-on-hover ${
+                    activeTab === 'schemas'
+                      ? 'glow-orange bg-primary/10 glow-border-strong border-b-2 border-primary'
+                      : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
+                  }`}
+                >
+                  Schemas & Tabelas
                 </button>
               </div>
             </div>
@@ -239,6 +289,78 @@ export default function Page() {
                 queryPerformance={queryPerformance}
                 recommendations={recommendations}
               />
+            )}
+            {activeTab === 'schemas' && (
+              <div className="flex-1 overflow-auto p-6">
+                <div className="max-w-6xl mx-auto">
+                  {schemasData ? (
+                    <>
+                      <div className="neu-card rounded-2xl p-5 mb-4 neu-hover">
+                        <h3 className="text-lg font-bold glow-orange mb-4">Resumo</h3>
+                        <div className="grid grid-cols-3 gap-4 text-sm">
+                          <div>
+                            <div className="text-muted-foreground">Total de Schemas</div>
+                            <div className="text-2xl font-bold text-primary glow-orange">{schemasData.summary.totalSchemas}</div>
+                          </div>
+                          <div>
+                            <div className="text-muted-foreground">Total de Tabelas</div>
+                            <div className="text-2xl font-bold text-primary glow-orange">{schemasData.summary.totalTables}</div>
+                          </div>
+                          <div>
+                            <div className="text-muted-foreground">Total de Views</div>
+                            <div className="text-2xl font-bold text-primary glow-orange">{schemasData.summary.totalViews}</div>
+                          </div>
+                        </div>
+                      </div>
+                      {schemasData.schemas.map((schema: any) => (
+                        <div key={schema.schema_name} className="neu-card rounded-2xl p-5 mb-4 neu-hover">
+                          <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-bold glow-orange">Schema: <span className="font-mono">{schema.schema_name}</span></h3>
+                            <div className="text-sm text-muted-foreground">
+                              {schema.tableCount} tabelas • {schema.viewCount} views
+                            </div>
+                          </div>
+                          {schema.tables.length > 0 && (
+                            <div className="mb-4">
+                              <h4 className="text-sm font-semibold text-primary mb-2 glow-orange-subtle">Tabelas ({schema.tables.length})</h4>
+                              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                                {schema.tables.map((table: any) => (
+                                  <div key={table.table_name} className="bg-black/30 rounded-lg p-2 border border-primary/20 hover:border-primary/40 transition-all">
+                                    <div className="font-mono text-xs text-primary glow-orange-subtle">{table.table_name}</div>
+                                    <div className="text-[10px] text-muted-foreground mt-1">
+                                      {table.row_count?.toLocaleString() || 0} linhas
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          {schema.views.length > 0 && (
+                            <div>
+                              <h4 className="text-sm font-semibold text-primary mb-2 glow-orange-subtle">Views ({schema.views.length})</h4>
+                              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                                {schema.views.map((view: any) => (
+                                  <div key={view.view_name} className="bg-black/30 rounded-lg p-2 border border-primary/20 hover:border-primary/40 transition-all">
+                                    <div className="font-mono text-xs text-primary glow-orange-subtle">{view.view_name}</div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </>
+                  ) : (
+                    <div className="neu-card rounded-2xl p-8 text-center">
+                      <div className="text-4xl mb-4">📊</div>
+                      <p className="text-lg font-semibold glow-orange mb-2">Schemas e Tabelas</p>
+                      <p className="text-sm text-muted-foreground glow-orange-subtle">
+                        Clique na aba &quot;Schemas &amp; Tabelas&quot; para carregar a lista completa
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </section>
