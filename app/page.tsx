@@ -42,7 +42,6 @@ export default function Page() {
   const [aiSummary, setAiSummary] = useState<string>("");
   const [activeTab, setActiveTab] = useState<'overview' | 'security' | 'performance' | 'schemas'>('overview');
   const [schemasData, setSchemasData] = useState<any>(null);
-  const [credentials, setCredentials] = useState<{user: string, password: string} | null>(null);
   const [logs, setLogs] = useState<Array<{ ts: number; type: 'info' | 'error' | 'success'; msg: string }>>([]);
   const [connectionSecurity, setConnectionSecurity] = useState<'tls' | 'insecure' | null>(null);
   const defaultConfig = { server: '104.234.224.238', port: 1445, user: 'angrax', database: 'sgc', connTimeout: 15000, reqTimeout: 15000, tds: '7.4' };
@@ -105,13 +104,7 @@ export default function Page() {
       <main className="flex flex-1 overflow-hidden h-full">
         <Sidebar>
           <ConnectionForm
-            onAnalysis={(data) => {
-              handleAnalysis(data);
-              // Armazenar credenciais para uso na aba schemas
-              if (data?.analysis && !data?.error) {
-                setCredentials({ user: defaultConfig.user, password: "" }); // Senha não é armazenada por segurança
-              }
-            }}
+            onAnalysis={handleAnalysis}
             loading={loading}
             setLoading={setLoading}
             onLog={addLog}
