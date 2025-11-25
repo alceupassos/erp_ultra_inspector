@@ -112,7 +112,9 @@ export async function POST(req: NextRequest) {
     `);
 
     // Configurações do Banco de Dados
-    const dbConfig = await pool.request().query(`
+    const dbConfigRequest = pool.request();
+    dbConfigRequest.input('database', sql.NVarChar, database);
+    const dbConfig = await dbConfigRequest.query(`
       SELECT 
         name,
         database_id,
@@ -130,7 +132,7 @@ export async function POST(req: NextRequest) {
         state_desc
       FROM sys.databases
       WHERE name = @database
-    `).input('database', sql.NVarChar, database);
+    `);
 
     // Filegroups e Files
     const filegroups = await pool.request().query(`
@@ -191,59 +193,78 @@ export async function POST(req: NextRequest) {
     `);
 
     // SQL Server Agent Jobs
-    const jobs = await pool.request().query(`
-      SELECT 
-        j.name AS job_name,
-        j.enabled,
-        j.date_created,
-        j.date_modified,
-        j.description
-      FROM msdb.dbo.sysjobs j
-      ORDER BY j.name
-    `).catch(() => ({ recordset: [] }));
+    let jobs = { recordset: [] };
+    try {
+      jobs = await pool.request().query(`
+        SELECT 
+          j.name AS job_name,
+          j.enabled,
+          j.date_created,
+          j.date_modified,
+          j.description
+        FROM msdb.dbo.sysjobs j
+        ORDER BY j.name
+      `);
+    } catch (e) {
+      console.warn("Não foi possível acessar msdb:", e);
+    }
 
     // Configurações de Backup
-    const backupConfig = await pool.request().query(`
-      SELECT 
-        database_name,
-        backup_start_date,
-        backup_finish_date,
-        type,
-        backup_size / 1024 / 1024 AS backup_size_mb,
-        recovery_model,
-        is_copy_only
-      FROM (
-        SELECT TOP 10
+    let backupConfig = { recordset: [] };
+    try {
+      const backupRequest = pool.request();
+      backupRequest.input('database', sql.NVarChar, database);
+      backupConfig = await backupRequest.query(`
+        SELECT 
           database_name,
           backup_start_date,
           backup_finish_date,
-          CASE type
-            WHEN 'D' THEN 'Full'
-            WHEN 'I' THEN 'Differential'
-            WHEN 'L' THEN 'Log'
-            ELSE 'Other'
-          END AS type,
-          backup_size,
+          type,
+          backup_size / 1024 / 1024 AS backup_size_mb,
           recovery_model,
           is_copy_only
-        FROM msdb.dbo.backupset
-        WHERE database_name = @database
-        ORDER BY backup_start_date DESC
-      ) AS recent_backups
-    `).input('database', sql.NVarChar, database).catch(() => ({ recordset: [] }));
+        FROM (
+          SELECT TOP 10
+            database_name,
+            backup_start_date,
+            backup_finish_date,
+            CASE type
+              WHEN 'D' THEN 'Full'
+              WHEN 'I' THEN 'Differential'
+              WHEN 'L' THEN 'Log'
+              ELSE 'Other'
+            END AS type,
+            backup_size,
+            recovery_model,
+            is_copy_only
+          FROM msdb.dbo.backupset
+          WHERE database_name = @database
+          ORDER BY backup_start_date DESC
+        ) AS recent_backups
+      `);
+    } catch (e) {
+      console.warn("Não foi possível acessar histórico de backups:", e);
+    }
 
     // Configurações de TDE (se habilitado)
-    const tdeConfig = await pool.request().query(`
-      SELECT 
-        database_id,
-        encryption_state,
-        encryption_state_desc,
-        key_algorithm,
-        key_length,
-        encryptor_type
-      FROM sys.dm_database_encryption_keys
-      WHERE database_id = DB_ID(@database)
-    `).input('database', sql.NVarChar, database).catch(() => ({ recordset: [] }));
+    let tdeConfig = { recordset: [] };
+    try {
+      const tdeRequest = pool.request();
+      tdeRequest.input('database', sql.NVarChar, database);
+      tdeConfig = await tdeRequest.query(`
+        SELECT 
+          database_id,
+          encryption_state,
+          encryption_state_desc,
+          key_algorithm,
+          key_length,
+          encryptor_type
+        FROM sys.dm_database_encryption_keys
+        WHERE database_id = DB_ID(@database)
+      `);
+    } catch (e) {
+      console.warn("Não foi possível verificar TDE:", e);
+    }
 
     const exportData = {
       exportDate: new Date().toISOString(),
